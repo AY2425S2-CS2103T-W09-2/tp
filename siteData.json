@@ -9,7 +9,7 @@
         "project-team": "Project team",
         "w09": "W09",
         "zhao-zhihao": "Zhao Zhihao",
-        "johnny-doe": "Johnny Doe",
+        "shelia-teo-zi-hui": "Shelia Teo Zi Hui",
         "jean-doe": "Jean Doe",
         "james-doe": "James Doe"
       },
@@ -138,6 +138,14 @@
     {
       "src": "team/Noob-No-1.md",
       "title": "Zhao Zhihao's Project Portfolio Page",
+      "headings": {
+        "project-guestnote": "Project: GuestNote"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/shelialia.md",
+      "title": "Shelia's Project Portfolio Page",
       "headings": {
         "project-guestnote": "Project: GuestNote"
       },
