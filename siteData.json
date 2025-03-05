@@ -10,7 +10,7 @@
         "w09": "W09",
         "zhao-zhihao": "Zhao Zhihao",
         "shelia-teo-zi-hui": "Shelia Teo Zi Hui",
-        "jean-doe": "Jean Doe",
+        "chloe-heng": "Chloe Heng",
         "james-doe": "James Doe"
       },
       "headingKeywords": {}
@@ -138,6 +138,14 @@
     {
       "src": "team/Noob-No-1.md",
       "title": "Zhao Zhihao's Project Portfolio Page",
+      "headings": {
+        "project-guestnote": "Project: GuestNote"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/juniper285.md",
+      "title": "Chloe Heng's Project Portfolio Page",
       "headings": {
         "project-guestnote": "Project: GuestNote"
       },
