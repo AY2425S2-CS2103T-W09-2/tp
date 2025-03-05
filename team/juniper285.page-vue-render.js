@@ -8,6 +8,6 @@ with(this){return _c('div',{attrs:{"id":"app"}},[_c('header',{attrs:{"sticky":""
 with(this){return _c('div',{attrs:{"id":"content-wrapper"}},[_c('h3',{attrs:{"id":"project-guestnote"}},[_v("Project: GuestNote"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#project-guestnote","onclick":"event.stopPropagation()"}})]),_v(" "),_c('p',[_v("GuestNote is a desktop address book application used by a hotel concierge to track hotel guests. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java.")]),_v(" "),_c('p',[_v("Given below are my contributions to the project.")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.5.3")]),_v(", generated on Thu, 6 Mar 2025, 0:28:14 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.5.3")]),_v(", generated on Thu, 6 Mar 2025, 0:41:35 GMT+8]")])])])}
 }];
   

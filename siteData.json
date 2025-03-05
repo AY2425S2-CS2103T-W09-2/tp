@@ -12,7 +12,7 @@
         "shelia-teo-zi-hui": "Shelia Teo Zi Hui",
         "ron-quah-kai-yi": "Ron Quah Kai Yi",
         "chloe-heng": "Chloe Heng",
-        "james-doe": "James Doe"
+        "lucas-loh": "Lucas Loh"
       },
       "headingKeywords": {}
     },
@@ -139,6 +139,14 @@
     {
       "src": "team/Noob-No-1.md",
       "title": "Zhao Zhihao's Project Portfolio Page",
+      "headings": {
+        "project-guestnote": "Project: GuestNote"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/aekyr.md",
+      "title": "Lucas Loh's Project Portfolio Page",
       "headings": {
         "project-guestnote": "Project: GuestNote"
       },
