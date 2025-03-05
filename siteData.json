@@ -10,6 +10,7 @@
         "w09": "W09",
         "zhao-zhihao": "Zhao Zhihao",
         "shelia-teo-zi-hui": "Shelia Teo Zi Hui",
+        "ron-quah-kai-yi": "Ron Quah Kai Yi",
         "chloe-heng": "Chloe Heng",
         "james-doe": "James Doe"
       },
@@ -146,6 +147,14 @@
     {
       "src": "team/juniper285.md",
       "title": "Chloe Heng's Project Portfolio Page",
+      "headings": {
+        "project-guestnote": "Project: GuestNote"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/salads-source.md",
+      "title": "GuestNote Contributions",
       "headings": {
         "project-guestnote": "Project: GuestNote"
       },
