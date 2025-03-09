@@ -29,7 +29,7 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 <puml src="diagrams/ArchitectureDiagram.puml" width="280" />
 
-The ***Architecture Diagram*** given above explains the high-level design of the App.
+The * * *Architecture Diagram* * * given above explains the high-level design of the App.
 
 Given below is a quick overview of main components and how they interact with each other.
 
@@ -274,71 +274,303 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* has a need to manage a significant number of hotel guests
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: manage hotel guests faster than a typical mouse/GUI driven app
 
 
 ### User stories
 
-Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
+Priorities: High (must have) - ```* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                        |
-|----------|--------------------------------------------|------------------------------|------------------------------------------------------------------------|
-| `* * *`  | new user                                   | see usage instructions       | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person             |                                                                        |
-| `* * *`  | user                                       | delete a person              | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name        | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name         | locate a person easily                                                 |
-
-*{More to be added}*
-
-### Use cases
-
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
-
-**Use case: Delete a person**
-
-**MSS**
-
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
-
-    Use case ends.
-
-**Extensions**
-
-* 2a. The list is empty.
-
-  Use case ends.
-
-* 3a. The given index is invalid.
-
-    * 3a1. AddressBook shows an error message.
-
-      Use case resumes at step 2.
+| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                       |
+|-------|--------------------------------------------|------------------------------|-----------------------------------------------------------------------|
+| `* * *` | Hotel Concierge                            | Create guests' details (Name, Room Number)       | Add new guests to the hotel                                          |
+| `* * *` | Hotel Concierge                            | Read guests' details                             | Keep track of the information of hotel guests                        |
+| `* * *` | Hotel Concierge                            | Update guests' details                           | Edit guest information when a change is requested                    |
+| `* * *` | Hotel Concierge                            | Delete guests and their details                  | Remove guests that request their information to be deleted           |
+| `* * *` | Hotel Concierge                            | View a list of all current guests               | Keep track of the number of hotel guests                             |
+| `* * *` | Hotel Concierge                            | Search for guest by name                        | Quickly look up information                                          |
+| `* *` | Hotel Concierge                            | CRUD guests' requests                           | Track requests by guests                                            |
+| `* *` | Hotel Concierge                            | Search for guest by request                     | Match the request to the guest                                       |
+| `* *` | Hotel Concierge                            | Mark and unmark guest requests as completed     | Track what requests are completed                                   |
+| `* *` | Hotel Concierge                            | List all outstanding requests by guest          | See what requests need to be completed                              |
+| `* *` | Hotel Concierge                            | Log a guest's check-in date                     | Maintain check-in records                                           |
+| `* *` | Hotel Concierge                            | Log a guest's check-out date                    | Maintain check-out records                                          |
+| `* *` | Newbie Hotel Concierge                    | Have easy access to a guide of commands         | Easily navigate through the app and access necessary information     |
+| `* *` | Newbie Hotel Concierge                    | See help text on command format                 | Understand the correct format for a command                         |
+| `* *` | Experienced Hotel Concierge               | Enter commands using short-forms                | Access required information with fewer keystrokes                   |
+| `* *` | Experienced Hotel Concierge               | Quickly input most commonly used commands       | Access and update information faster                                |
+| `* *` | Experienced Hotel Concierge               | Have power commands that shortcut multiple commands | Streamline repetitive commands and workflows                         |
+| `* *` | Concierge                                 | Pin guests                                      | Quickly refer to guests without searching each time                 |
+| `* *` | An impatient user                         | Experience reasonable response time             | Use the app for large cases                                         |
+| `* *` | A user who prefers hardcopy              | Export guest data in text format                | Have a backup of guest details                                       |
+| `*`     | A potential user exploring the app       | See the app populated with sample data          | Understand how the app will look in use                             |
+| `*`     | A user ready to start using the app      | Purge all current data                          | Remove sample/experimental data used for exploring the app          |
 
 *{More to be added}*
 
-### Non-Functional Requirements
+# Use Cases
 
-1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+This document outlines the use cases for the GuestBook system, detailing the interactions between the system and the Hotel Concierge actor. Each use case includes a main success scenario (MSS) and possible extensions or variations.
 
-*{More to be added}*
+Note for any given step in the following use case, we assume that they are atomic operations and are executed successfully unless otherwise specified in the extensions.
+
+For all cases below, the **System** is the `GuestBook` and the **Actor** is the `Hotel Concierge`, unless specified otherwise
+
+---------------------------------------------------------
+
+### Use case: UC01 - Create New Guest
+
+<box type="info">
+    <b>Preconditions:</b> Guest does not already exist in GuestBook.
+</box>
+
+**MSS:**
+1. Concierge requests to create a new guest, passing the new guest’s details (name, room number).
+2. GuestBook validates the input and creates a new guest record.
+3. GuestBook displays a success message confirming the guest’s creation.  
+   Use case ends.
+
+**Extensions:**
+<box type="tip" header="1a. Optional Requests 📝" light>
+    <ul>
+      <li>1a1. Concierge provides zero or more optional “requests” (e.g., special amenities, notes).</li>
+      <li>1a2. Use case resumes from step 2.</li>
+    </ul>
+</box>
+<box type="wrong" header="2a. Invalid or Incomplete Details" light>
+    <ul>
+      <li>2a1. GuestBook detects that the provided information is missing or fails validation (e.g., invalid name or room number).</li>
+      <li>2a2. GuestBook informs the Concierge of the error and prompts for corrections.<br>Use case ends.</li>
+    </ul>
+</box>
+
+---------------------------------------------------------
+
+### Use case: UC02 - List Guests
+
+**MSS:**
+1. Concierge requests a list of all guests.
+2. GuestBook retrieves and displays a list of all guests.  
+   Use case ends.
+
+**Extensions:**
+<box type="tip" header="1a. Search :search:" light>
+    <ul>
+      <li>1a1. Concierge provides a search term.</li>
+      <li>1a2. GuestBook filters the list of guests based on the search term.</li>
+      <li>1a3. GuestBook displays the filtered list of guests.<br>Use case ends.</li>
+    </ul>
+</box>
+<box type="warning" header="2a. No Guests" light>
+    <ul>
+      <li>2a1. GuestBook detects that there are no guests in the system.</li>
+      <li>2a2. GuestBook displays a message indicating that there are no guests.<br>Use case ends.</li>
+    </ul>
+</box>
+
+---------------------------------------------------------
+
+### Use case: UC03 - Update Guest Details
+<box type="info">
+<b>Preconditions:</b> Guest exists in GuestBook.
+</box>
+
+**MSS:**
+1. Concierge retrieves a !!guest's ID (UC02)!!
+2. Concierge requests to update the guest’s details, passing the guest’s ID and the new details.
+3. GuestBook validates the input and updates the guest’s record.
+4. GuestBook displays a success message confirming the update.  
+   Use case ends.
+
+**Extensions:**
+<box type="warning" header="3a. Guest Not Found" light>
+    <ul>
+      <li>3a1. GuestBook detects that the provided guest ID does not exist in the system.</li>
+      <li>3a2. GuestBook informs the Concierge that the guest was not found.<br>Use case ends.</li>
+    </ul>
+</box>
+<box type="wrong" header="3b. Invalid or Incomplete Details" light>
+    <ul>
+      <li>3b1. GuestBook detects that the provided information is missing or fails validation (e.g., invalid name or room number).</li>
+      <li>3b2. GuestBook informs the Concierge of the error and prompts for corrections.<br>Use case ends.</li>
+    </ul>
+</box>
+---------------------------------------------------------
+
+### Use case: UC04 - Delete Guest
+<box type="info">
+    <b>Preconditions:</b> Guest exists in GuestBook.
+</box>
+
+**MSS:**
+1. Concierge retrieves a !!guest's ID (UC02)!!
+2. Concierge requests to delete the guest, passing the guest’s ID.
+3. GuestBook confirms the deletion of the guest.  
+   Use case ends.
+
+**Extensions:**
+<box type="warning" header="3a. Guest Not Found" light>
+    <ul>
+      <li>3a1. GuestBook detects that the provided guest ID does not exist in the system.</li>
+      <li>3a2. GuestBook informs the Concierge that the guest was not found.<br>Use case ends.</li>
+    </ul>
+</box>
+
+---------------------------------------------------------
+
+### Use case: UC05 - Create New Request for Guest
+<box type="info">
+<b>Preconditions:</b> Guest exists in GuestBook.
+</box>
+
+**MSS:**
+1. Concierge retrieves a !!guest's ID (UC02)!!
+2. Concierge requests to create a new request for the guest, passing the guest’s ID and the request details.
+3. GuestBook validates the input and creates a new request record for the guest.
+4. GuestBook displays a success message confirming the request creation.  
+   Use case ends.
+
+**Extensions:**
+<box type="tip" header="2a. Optional Completion Status" light>
+    <ul>
+      <li>2a1. Concierge provides optional completion status (e.g., pending, completed).</li>
+      <li>2a2. Use case resumes from step 3.</li>
+    </ul>
+</box>
+
+<box type="warning" header="3a. Guest Not Found" light>
+    <ul>
+      <li>3a1. GuestBook detects that the provided guest ID does not exist in the system.</li>
+      <li>3a2. GuestBook informs the Concierge that the guest was not found.<br>Use case ends.</li>
+    </ul>
+</box>
+<box type="wrong" header="3b. Invalid or Incomplete Details" light>
+    <ul>
+      <li>3b1. GuestBook detects that the provided information is missing or fails validation.</li>
+      <li>3b2. GuestBook informs the Concierge of the error and prompts for corrections.<br>Use case ends.</li>
+    </ul>
+</box>
+
+---------------------------------------------------------
+
+### Use case: UC06 - List All Requests
+<box type="info">
+<b>Preconditions:</b> Guest exists in GuestBook.
+</box>
+
+**MSS:**
+1. Concierge requests a list of all requests
+2. GuestBook retrieves and displays a list of all requests.  
+   Use case ends.
+
+**Extensions:**
+<box type="tip" header="2a. Search 🔍" light>
+    <ul>
+      <li>2a1. Concierge provides a search term.</li>
+      <li>2a2. GuestBook filters the list of requests based on the search term.</li>
+      <li>2a3. GuestBook displays the filtered list of requests.<br>Use case ends.</li>
+    </ul>
+</box>
+<box type="tip" header="2b. Filter by Completion Status 📥" light>
+    <ul>
+      <li>2b1. Concierge provides a completion status.</li>
+      <li>2b2. GuestBook filters the list of requests with matching completion status.</li>
+      <li>2b3. GuestBook displays the filtered list of requests.<br>Use case ends.</li>
+    </ul>
+</box>
+
+<box type="warning" header="3a. No Requests" light>
+    <ul>
+      <li>3a1. GuestBook detects that there are no requests for the guest.</li>
+      <li>3a2. GuestBook displays a message indicating that there are no requests for the guest.<br>Use case ends.</li>
+    </ul>
+</box>
+<box type="warning" header="3b. Guest Not Found" light>
+    <ul>
+      <li>3b1. GuestBook detects that the provided guest ID does not exist in the system.</li>
+      <li>3b2. GuestBook informs the Concierge that the guest was not found.<br>Use case ends.</li>
+    </ul>
+</box>
+
+---------------------------------------------------------
+
+### Use case: UC07 - Mark Request as Completed
+<box type="info">
+    <b>Preconditions:</b>
+    <ul>
+        <li>Guest exists in GuestBook.</li>
+        <li>Request exists for the guest.</li>
+    </ul>
+</box>
+
+**MSS:**
+1. Concierge retrieves a !!guest's ID (UC02)!!
+2. Concierge retrieves a !!request's ID (UC06)!!
+3. Concierge requests to mark the request as completed, passing the request ID.
+4. GuestBook updates the request record with the completion status.
+5. GuestBook displays a success message confirming the request completion.  
+   Use case ends.
+
+**Extensions:**
+<box type="warning" header="3a. Request Not Found" light>
+    <ul>
+      <li>3a1. GuestBook detects that the provided request ID does not exist for the guest.</li>
+      <li>3a2. GuestBook informs the Concierge that the request was not found.<br>Use case ends.</li>
+    </ul>
+</box>
+<box type="wrong" header="3b. Invalid Completion Status" light>
+    <ul>
+      <li>3b1. GuestBook detects that the provided completion status is invalid.</li>
+      <li>3b2. GuestBook informs the Concierge of the error and prompts for corrections.<br>Use case ends.</li>
+    </ul>
+</box>
+
+---------------------------------------------------------
+
+### Use case: UC08 - Delete Request
+<box type="info">
+    <b>Preconditions:</b>
+    <ul>
+        <li>Guest exists in GuestBook.</li>
+        <li>Request exists for the guest.</li>
+    </ul>
+</box>
+
+**MSS:**
+1. Concierge retrieves a !!guest's ID (UC02)!!
+2. Concierge retrieves a !!request's ID (UC06)!!
+3. Concierge requests to delete the request, passing the request ID.
+4. GuestBook confirms the deletion of the request.  
+   Use case ends.
+
+**Extensions:**
+<box type="warning" header="3a. Request Not Found" light>
+    <ul>
+      <li>3a1. GuestBook detects that the provided request ID does not exist for the guest.</li>
+      <li>3a2. GuestBook informs the Concierge that the request was not found.<br>Use case ends.</li>
+    </ul>
+</box>
 
 ### Glossary
 
-* **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+* **Guest:**
+A person staying at the hotel whose information is stored in the **GuestBook** system.
+* **GuestBook:**
+The system responsible for managing hotel guest records, including personal details, requests, and check-in/check-out data.
+* **Request:**
+A service or action requested by a guest (e.g., room service, maintenance, additional amenities).
+* **Check-in:**
+The process of registering a guest’s arrival at the hotel.
+* **Check-out:**
+The process of finalising a guest’s stay and removing their active record.
+
+
 
 --------------------------------------------------------------------------------------------------------------------
 
