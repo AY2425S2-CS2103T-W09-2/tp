@@ -10,11 +10,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.guestnote.commons.exceptions.IllegalValueException;
-import seedu.guestnote.model.guest.Email;
-import seedu.guestnote.model.guest.Guest;
-import seedu.guestnote.model.guest.Name;
-import seedu.guestnote.model.guest.Phone;
-import seedu.guestnote.model.guest.RoomNumber;
+import seedu.guestnote.model.guest.*;
 
 /**
  * Jackson-friendly version of {@link Guest}.
@@ -22,7 +18,7 @@ import seedu.guestnote.model.guest.RoomNumber;
 class JsonAdaptedPerson {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Guest's %s field is missing!";
-
+    private final String guestId;
     private final String name;
     private final String phone;
     private final String email;
@@ -34,11 +30,13 @@ class JsonAdaptedPerson {
      */
     @JsonCreator
     public JsonAdaptedPerson(
+            @JsonProperty("guestId") String guestId,
             @JsonProperty("name") String name,
             @JsonProperty("phone") String phone,
             @JsonProperty("email") String email,
             @JsonProperty("roomNumber") String roomNumber,
             @JsonProperty("tags") List<JsonAdaptedTag> tags) {
+        this.guestId = guestId;
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -52,6 +50,7 @@ class JsonAdaptedPerson {
      * Converts a given {@code Guest} into this class for Jackson use.
      */
     public JsonAdaptedPerson(Guest source) {
+        guestId = source.getGuestId().value;
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
@@ -71,6 +70,14 @@ class JsonAdaptedPerson {
         for (JsonAdaptedTag tag : tags) {
             personRequests.add(tag.toModelType());
         }
+
+        if (guestId == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
+        }
+        if (!GuestId.isValidGuestId(guestId)) {
+            throw new IllegalValueException(Name.MESSAGE_CONSTRAINTS);
+        }
+        final GuestId modelGuestId = new GuestId(guestId);
 
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
@@ -107,7 +114,7 @@ class JsonAdaptedPerson {
         final RoomNumber modelRoomNumber = new RoomNumber(roomNumber);
 
         final Set<seedu.guestnote.model.request.Request> modelRequests = new HashSet<>(personRequests);
-        return new Guest(modelName, modelPhone, modelEmail, modelRoomNumber, modelRequests);
+        return new Guest(modelGuestId, modelName, modelPhone, modelEmail, modelRoomNumber, modelRequests);
     }
 
 }
