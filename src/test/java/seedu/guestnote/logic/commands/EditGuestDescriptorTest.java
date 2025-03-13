@@ -56,6 +56,7 @@ public class EditGuestDescriptorTest {
     public void toStringMethod() {
         EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
         String expected = EditPersonDescriptor.class.getCanonicalName() + "{name="
+                + editPersonDescriptor.getGuestId().orElse(null) + ", guestId="
                 + editPersonDescriptor.getName().orElse(null) + ", phone="
                 + editPersonDescriptor.getPhone().orElse(null) + ", email="
                 + editPersonDescriptor.getRoomNumber().orElse(null) + ", roomNumber="

@@ -6,11 +6,7 @@ import java.util.stream.Collectors;
 
 import seedu.guestnote.model.GuestBook;
 import seedu.guestnote.model.ReadOnlyGuestBook;
-import seedu.guestnote.model.guest.Email;
-import seedu.guestnote.model.guest.Guest;
-import seedu.guestnote.model.guest.Name;
-import seedu.guestnote.model.guest.Phone;
-import seedu.guestnote.model.guest.RoomNumber;
+import seedu.guestnote.model.guest.*;
 import seedu.guestnote.model.request.Request;
 
 /**
@@ -19,22 +15,22 @@ import seedu.guestnote.model.request.Request;
 public class SampleDataUtil {
     public static Guest[] getSamplePersons() {
         return new Guest[] {
-            new Guest(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
+            new Guest(new GuestId("abcd"), new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
                 new RoomNumber("12-33"),
                 getTagSet("friends")),
-            new Guest(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
+            new Guest(new GuestId("sjdk"), new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
                 new RoomNumber("23-32"),
                 getTagSet("colleagues", "friends")),
-            new Guest(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
+            new Guest(new GuestId("ldkf"), new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
                 new RoomNumber("01-57"),
                 getTagSet("neighbours")),
-            new Guest(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
+            new Guest(new GuestId("dfds"), new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
                 new RoomNumber("04-22"),
                 getTagSet("family")),
-            new Guest(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
+            new Guest(new GuestId("lsoc"), new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
                 new RoomNumber("02-23"),
                 getTagSet("classmates")),
-            new Guest(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
+            new Guest(new GuestId("lsoc"), new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
                 new RoomNumber("11-33"),
                 getTagSet("colleagues"))
         };

@@ -87,7 +87,7 @@ public class GuestTest {
 
     @Test
     public void toStringMethod() {
-        String expected = Guest.class.getCanonicalName() + "{name=" + ALICE.getName() + ", phone=" + ALICE.getPhone()
+        String expected = Guest.class.getCanonicalName() + "{name=" + ALICE.getName() + ", guestId=" + ALICE.getGuestId() + ", phone=" + ALICE.getPhone()
                 + ", email=" + ALICE.getEmail() + ", roomNumber=" + ALICE.getRoomNumber()
                 + ", requests=" + ALICE.getRequests()
                 + "}";

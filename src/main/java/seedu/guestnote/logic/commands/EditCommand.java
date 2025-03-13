@@ -135,6 +135,7 @@ public class EditCommand extends Command {
      * corresponding field value of the guest.
      */
     public static class EditPersonDescriptor {
+        private GuestId guestId;
         private Name name;
         private Phone phone;
         private Email email;
@@ -148,6 +149,7 @@ public class EditCommand extends Command {
          * A defensive copy of {@code requests} is used internally.
          */
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
+            setGuestId(toCopy.guestId);
             setName(toCopy.name);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
@@ -159,8 +161,12 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, roomNumber, requests);
+            return CollectionUtil.isAnyNonNull(guestId, name, phone, email, roomNumber, requests);
         }
+
+        public void setGuestId(GuestId guestId) {this.guestId = guestId; }
+
+        public Optional<GuestId> getGuestId() { return Optional.ofNullable(guestId); }
 
         public void setName(Name name) {
             this.name = name;
@@ -223,7 +229,8 @@ public class EditCommand extends Command {
             }
 
             EditPersonDescriptor otherEditPersonDescriptor = (EditPersonDescriptor) other;
-            return Objects.equals(name, otherEditPersonDescriptor.name)
+            return Objects.equals(guestId, otherEditPersonDescriptor.guestId)
+                    && Objects.equals(name, otherEditPersonDescriptor.name)
                     && Objects.equals(phone, otherEditPersonDescriptor.phone)
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(roomNumber, otherEditPersonDescriptor.roomNumber)
@@ -233,6 +240,7 @@ public class EditCommand extends Command {
         @Override
         public String toString() {
             return new ToStringBuilder(this)
+                    .add("guestId", guestId)
                     .add("name", name)
                     .add("phone", phone)
                     .add("email", email)
