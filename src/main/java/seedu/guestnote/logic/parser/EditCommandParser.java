@@ -2,7 +2,6 @@ package seedu.guestnote.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.guestnote.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -33,7 +32,7 @@ public class EditCommandParser implements Parser<EditCommand> {
     public EditCommand parse(String args) throws ParseException {
         requireNonNull(args);
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(
-                args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ROOMNUMBER, PREFIX_ADDRESS, PREFIX_TAG
+                args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ROOMNUMBER, PREFIX_TAG
         );
 
         Index index;
@@ -45,7 +44,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
 
         argMultimap.verifyNoDuplicatePrefixesFor(
-                PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ROOMNUMBER, PREFIX_ADDRESS
+                PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ROOMNUMBER
         );
 
         EditPersonDescriptor editPersonDescriptor = new EditPersonDescriptor();
@@ -63,9 +62,6 @@ public class EditCommandParser implements Parser<EditCommand> {
             editPersonDescriptor.setRoomNumber(ParserUtil.parseRoomNumber(
                     argMultimap.getValue(PREFIX_ROOMNUMBER).get())
             );
-        }
-        if (argMultimap.getValue(PREFIX_ADDRESS).isPresent()) {
-            editPersonDescriptor.setAddress(ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS).get()));
         }
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editPersonDescriptor::setTags);
 

@@ -1,6 +1,5 @@
 package seedu.guestnote.testutil;
 
-import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -35,7 +34,6 @@ public class PersonUtil {
         sb.append(PREFIX_PHONE + guest.getPhone().value + " ");
         sb.append(PREFIX_EMAIL + guest.getEmail().value + " ");
         sb.append(PREFIX_ROOMNUMBER + guest.getRoomNumber().roomNumber + " ");
-        sb.append(PREFIX_ADDRESS + guest.getAddress().value + " ");
         guest.getRequests().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );
@@ -52,9 +50,6 @@ public class PersonUtil {
         descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
         descriptor.getRoomNumber().ifPresent(roomNumber ->
                 sb.append(PREFIX_ROOMNUMBER).append(roomNumber.roomNumber).append(" "));
-        descriptor.getAddress().ifPresent(
-                address -> sb.append(PREFIX_ADDRESS).append(address.value).append(" ")
-        );
         if (descriptor.getTags().isPresent()) {
             Set<Request> requests = descriptor.getTags().get();
             if (requests.isEmpty()) {

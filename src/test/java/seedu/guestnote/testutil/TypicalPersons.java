@@ -1,7 +1,5 @@
 package seedu.guestnote.testutil;
 
-import static seedu.guestnote.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
-import static seedu.guestnote.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.guestnote.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
 import static seedu.guestnote.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.guestnote.logic.commands.CommandTestUtil.VALID_NAME_AMY;
@@ -27,28 +25,24 @@ public class TypicalPersons {
 
     public static final Guest ALICE = new PersonBuilder()
             .withName("Alice Pauline")
-            .withAddress("123, Jurong West Ave 6, #08-111")
             .withEmail("alice@example.com")
             .withPhone("94351253")
             .withRoomNumber("12-33")
             .withTags("friends").build();
     public static final Guest BENSON = new PersonBuilder()
             .withName("Benson Meier")
-            .withAddress("311, Clementi Ave 2, #02-25")
             .withEmail("johnd@example.com")
             .withPhone("98765432")
             .withRoomNumber("23-32")
             .withTags("owesMoney", "friends").build();
     public static final Guest CARL = new PersonBuilder()
             .withName("Carl Kurz")
-            .withAddress("wall street")
             .withEmail("heinz@example.com")
             .withPhone("95352563")
             .withRoomNumber("01-57")
             .build();
     public static final Guest DANIEL = new PersonBuilder()
             .withName("Daniel Meier")
-            .withAddress("10th street")
             .withEmail("cornelia@example.com")
             .withPhone("87652533")
             .withRoomNumber("04-22")
@@ -56,21 +50,18 @@ public class TypicalPersons {
             .build();
     public static final Guest ELLE = new PersonBuilder()
             .withName("Elle Meyer")
-            .withAddress("michegan ave")
             .withEmail("werner@example.com")
             .withPhone("9482224")
             .withRoomNumber("02-23")
             .build();
     public static final Guest FIONA = new PersonBuilder()
             .withName("Fiona Kunz")
-            .withAddress("little tokyo")
             .withEmail("lydia@example.com")
             .withPhone("9482427")
             .withRoomNumber("11-33")
             .build();
     public static final Guest GEORGE = new PersonBuilder()
             .withName("George Best")
-            .withAddress("4th street")
             .withEmail("anna@example.com")
             .withPhone("9482442")
             .withRoomNumber("03-33")
@@ -79,14 +70,12 @@ public class TypicalPersons {
     // Manually added
     public static final Guest HOON = new PersonBuilder()
             .withName("Hoon Meier")
-            .withAddress("little india")
             .withEmail("stefan@example.com")
             .withPhone("8482424")
             .withRoomNumber("01-08")
             .build();
     public static final Guest IDA = new PersonBuilder()
             .withName("Ida Mueller")
-            .withAddress("chicago ave")
             .withEmail("hans@example.com")
             .withPhone("8482131")
             .withRoomNumber("01-09")
@@ -95,7 +84,6 @@ public class TypicalPersons {
     // Manually added - Guest's details found in {@code CommandTestUtil}
     public static final Guest AMY = new PersonBuilder()
             .withName(VALID_NAME_AMY)
-            .withAddress(VALID_ADDRESS_AMY)
             .withEmail(VALID_EMAIL_AMY)
             .withPhone(VALID_PHONE_AMY)
             .withRoomNumber(VALID_ROOMNUMBER_AMY)
@@ -105,7 +93,6 @@ public class TypicalPersons {
             .withName(VALID_NAME_BOB)
             .withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB)
-            .withAddress(VALID_ADDRESS_BOB)
             .withRoomNumber(VALID_ROOMNUMBER_BOB)
             .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
             .build();

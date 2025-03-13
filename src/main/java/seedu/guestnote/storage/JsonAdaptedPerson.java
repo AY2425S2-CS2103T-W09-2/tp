@@ -10,7 +10,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.guestnote.commons.exceptions.IllegalValueException;
-import seedu.guestnote.model.guest.Address;
 import seedu.guestnote.model.guest.Email;
 import seedu.guestnote.model.guest.Guest;
 import seedu.guestnote.model.guest.Name;
@@ -28,7 +27,6 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String roomNumber;
-    private final String address;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
@@ -40,13 +38,11 @@ class JsonAdaptedPerson {
             @JsonProperty("phone") String phone,
             @JsonProperty("email") String email,
             @JsonProperty("roomNumber") String roomNumber,
-            @JsonProperty("address") String address,
             @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.roomNumber = roomNumber;
-        this.address = address;
         if (tags != null) {
             this.tags.addAll(tags);
         }
@@ -60,7 +56,6 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         roomNumber = source.getRoomNumber().roomNumber;
-        address = source.getAddress().value;
         tags.addAll(source.getRequests().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -111,16 +106,8 @@ class JsonAdaptedPerson {
         }
         final RoomNumber modelRoomNumber = new RoomNumber(roomNumber);
 
-        if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
-        }
-        if (!Address.isValidAddress(address)) {
-            throw new IllegalValueException(Address.MESSAGE_CONSTRAINTS);
-        }
-        final Address modelAddress = new Address(address);
-
         final Set<seedu.guestnote.model.request.Request> modelRequests = new HashSet<>(personRequests);
-        return new Guest(modelName, modelPhone, modelEmail, modelRoomNumber, modelAddress, modelRequests);
+        return new Guest(modelName, modelPhone, modelEmail, modelRoomNumber, modelRequests);
     }
 
 }

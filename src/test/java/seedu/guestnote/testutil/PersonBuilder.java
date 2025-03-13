@@ -3,7 +3,6 @@ package seedu.guestnote.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import seedu.guestnote.model.guest.Address;
 import seedu.guestnote.model.guest.Email;
 import seedu.guestnote.model.guest.Guest;
 import seedu.guestnote.model.guest.Name;
@@ -21,13 +20,11 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ROOM_NUMBER = "00-00";
-    public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
     private Name name;
     private Phone phone;
     private Email email;
     private RoomNumber roomNumber;
-    private Address address;
     private Set<Request> requests;
 
     /**
@@ -38,7 +35,6 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         roomNumber = new RoomNumber(DEFAULT_ROOM_NUMBER);
-        address = new Address(DEFAULT_ADDRESS);
         requests = new HashSet<>();
     }
 
@@ -50,7 +46,6 @@ public class PersonBuilder {
         phone = guestToCopy.getPhone();
         email = guestToCopy.getEmail();
         roomNumber = guestToCopy.getRoomNumber();
-        address = guestToCopy.getAddress();
         requests = new HashSet<>(guestToCopy.getRequests());
     }
 
@@ -67,14 +62,6 @@ public class PersonBuilder {
      */
     public PersonBuilder withTags(String ... tags) {
         this.requests = SampleDataUtil.getTagSet(tags);
-        return this;
-    }
-
-    /**
-     * Sets the {@code Address} of the {@code Guest} that we are building.
-     */
-    public PersonBuilder withAddress(String address) {
-        this.address = new Address(address);
         return this;
     }
 
@@ -103,7 +90,7 @@ public class PersonBuilder {
     }
 
     public Guest build() {
-        return new Guest(name, phone, email, roomNumber, address, requests);
+        return new Guest(name, phone, email, roomNumber, requests);
     }
 
 }

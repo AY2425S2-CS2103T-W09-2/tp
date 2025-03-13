@@ -41,8 +41,6 @@ public class Messages {
                 .append(guest.getPhone())
                 .append("; Email: ")
                 .append(guest.getEmail())
-                .append("; Address: ")
-                .append(guest.getAddress())
                 .append("; Tags: ");
         guest.getRequests().forEach(builder::append);
         return builder.toString();

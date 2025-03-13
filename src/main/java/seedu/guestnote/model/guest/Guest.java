@@ -23,19 +23,17 @@ public class Guest {
 
     // Data fields
     private final RoomNumber roomNumber;
-    private final Address address;
     private final Set<Request> requests = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Guest(Name name, Phone phone, Email email, RoomNumber roomNumber, Address address, Set<Request> requests) {
-        requireAllNonNull(name, phone, email, address, requests);
+    public Guest(Name name, Phone phone, Email email, RoomNumber roomNumber, Set<Request> requests) {
+        requireAllNonNull(name, phone, email, requests);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.roomNumber = roomNumber;
-        this.address = address;
         this.requests.addAll(requests);
     }
 
@@ -53,10 +51,6 @@ public class Guest {
 
     public RoomNumber getRoomNumber() {
         return roomNumber;
-    }
-
-    public Address getAddress() {
-        return address;
     }
 
     /**
@@ -100,14 +94,13 @@ public class Guest {
                 && phone.equals(otherGuest.phone)
                 && email.equals(otherGuest.email)
                 && roomNumber.equals(otherGuest.roomNumber)
-                && address.equals(otherGuest.address)
                 && requests.equals(otherGuest.requests);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, roomNumber, address, requests);
+        return Objects.hash(name, phone, email, roomNumber, requests);
     }
 
     @Override
@@ -117,7 +110,6 @@ public class Guest {
                 .add("phone", phone)
                 .add("email", email)
                 .add("roomNumber", roomNumber)
-                .add("address", address)
                 .add("requests", requests)
                 .toString();
     }

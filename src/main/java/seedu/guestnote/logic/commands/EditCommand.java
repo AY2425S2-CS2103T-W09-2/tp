@@ -1,7 +1,6 @@
 package seedu.guestnote.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -22,7 +21,6 @@ import seedu.guestnote.commons.util.ToStringBuilder;
 import seedu.guestnote.logic.Messages;
 import seedu.guestnote.logic.commands.exceptions.CommandException;
 import seedu.guestnote.model.Model;
-import seedu.guestnote.model.guest.Address;
 import seedu.guestnote.model.guest.Email;
 import seedu.guestnote.model.guest.Guest;
 import seedu.guestnote.model.guest.Name;
@@ -45,7 +43,6 @@ public class EditCommand extends Command {
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_ROOMNUMBER + "ROOMNUMBER] "
-            + "[" + PREFIX_ADDRESS + "ADDRESS] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
@@ -102,10 +99,9 @@ public class EditCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(guestToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(guestToEdit.getEmail());
         RoomNumber updatedRoomNumber = editPersonDescriptor.getRoomNumber().orElse(guestToEdit.getRoomNumber());
-        Address updatedAddress = editPersonDescriptor.getAddress().orElse(guestToEdit.getAddress());
         Set<Request> updatedRequests = editPersonDescriptor.getTags().orElse(guestToEdit.getRequests());
 
-        return new Guest(updatedName, updatedPhone, updatedEmail, updatedRoomNumber, updatedAddress, updatedRequests);
+        return new Guest(updatedName, updatedPhone, updatedEmail, updatedRoomNumber, updatedRequests);
     }
 
     @Override
@@ -141,7 +137,6 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private RoomNumber roomNumber;
-        private Address address;
         private Set<Request> requests;
 
         public EditPersonDescriptor() {}
@@ -155,7 +150,6 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setRoomNumber(toCopy.roomNumber);
-            setAddress(toCopy.address);
             setTags(toCopy.requests);
         }
 
@@ -163,7 +157,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, roomNumber, address, requests);
+            return CollectionUtil.isAnyNonNull(name, phone, email, roomNumber, requests);
         }
 
         public void setName(Name name) {
@@ -196,14 +190,6 @@ public class EditCommand extends Command {
 
         public Optional<RoomNumber> getRoomNumber() {
             return Optional.ofNullable(roomNumber);
-        }
-
-        public void setAddress(Address address) {
-            this.address = address;
-        }
-
-        public Optional<Address> getAddress() {
-            return Optional.ofNullable(address);
         }
 
         /**
@@ -239,7 +225,6 @@ public class EditCommand extends Command {
                     && Objects.equals(phone, otherEditPersonDescriptor.phone)
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(roomNumber, otherEditPersonDescriptor.roomNumber)
-                    && Objects.equals(address, otherEditPersonDescriptor.address)
                     && Objects.equals(requests, otherEditPersonDescriptor.requests);
         }
 
@@ -250,7 +235,6 @@ public class EditCommand extends Command {
                     .add("phone", phone)
                     .add("email", email)
                     .add("roomNumber", roomNumber)
-                    .add("address", address)
                     .add("requests", requests)
                     .toString();
         }
