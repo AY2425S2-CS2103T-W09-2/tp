@@ -18,6 +18,7 @@ import seedu.guestnote.logic.commands.FindCommand;
 import seedu.guestnote.logic.commands.HelpCommand;
 import seedu.guestnote.logic.commands.ListCommand;
 import seedu.guestnote.logic.parser.exceptions.ParseException;
+import seedu.guestnote.model.Model;
 
 /**
  * Parses user input.
@@ -29,6 +30,14 @@ public class AddressBookParser {
      */
     private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
     private static final Logger logger = LogsCenter.getLogger(AddressBookParser.class);
+    private final Model model;
+
+    public AddressBookParser() {
+        this.model = null;
+    };
+    public AddressBookParser(Model model) {
+        this.model = model;
+    }
 
     /**
      * Parses user input into command for execution.
@@ -54,7 +63,7 @@ public class AddressBookParser {
         switch (commandWord) {
 
         case AddCommand.COMMAND_WORD:
-            return new AddCommandParser().parse(arguments);
+            return new AddCommandParser(model).parse(arguments);
 
         case EditCommand.COMMAND_WORD:
             return new EditCommandParser().parse(arguments);

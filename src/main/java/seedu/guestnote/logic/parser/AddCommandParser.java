@@ -12,17 +12,23 @@ import java.util.stream.Stream;
 
 import seedu.guestnote.logic.commands.AddCommand;
 import seedu.guestnote.logic.parser.exceptions.ParseException;
-import seedu.guestnote.model.guest.Email;
-import seedu.guestnote.model.guest.Guest;
-import seedu.guestnote.model.guest.Name;
-import seedu.guestnote.model.guest.Phone;
-import seedu.guestnote.model.guest.RoomNumber;
+import seedu.guestnote.model.Model;
+import seedu.guestnote.model.guest.*;
 import seedu.guestnote.model.request.Request;
 
 /**
  * Parses input arguments and creates a new AddCommand object
  */
 public class AddCommandParser implements Parser<AddCommand> {
+    private final Model model;
+
+    public AddCommandParser() {
+        this.model = null;
+    }
+
+    public AddCommandParser(Model model) {
+        this.model = model;
+    }
 
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand
@@ -42,13 +48,15 @@ public class AddCommandParser implements Parser<AddCommand> {
         argMultimap.verifyNoDuplicatePrefixesFor(
                 PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ROOMNUMBER
         );
+
+        GuestId guestId = model.generateUniqueGuestId();
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         RoomNumber roomNumber = ParserUtil.parseRoomNumber(argMultimap.getValue(PREFIX_ROOMNUMBER).get());
         Set<Request> requestList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Guest guest = new Guest(name, phone, email, roomNumber, requestList);
+        Guest guest = new Guest(guestId, name, phone, email, roomNumber, requestList);
 
         return new AddCommand(guest);
     }

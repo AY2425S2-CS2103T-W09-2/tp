@@ -3,10 +3,13 @@ package seedu.guestnote.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 import javafx.collections.ObservableList;
 import seedu.guestnote.commons.util.ToStringBuilder;
 import seedu.guestnote.model.guest.Guest;
+import seedu.guestnote.model.guest.GuestId;
 import seedu.guestnote.model.guest.UniqueGuestList;
 
 /**
@@ -84,6 +87,27 @@ public class GuestBook implements ReadOnlyGuestBook {
     }
 
     //// util methods
+    /**
+     * Generates a unique Guest ID.
+     */
+    public GuestId generateUniqueGuestId() {
+        Random random = new Random();
+        String guestId;
+        do {
+            guestId = random.ints(4, 0, 26)
+                    .mapToObj(i -> String.valueOf((char) ('A' + i)))
+                    .collect(Collectors.joining());
+        } while (containsGuestId(guestId)); // Ensure uniqueness
+        return new GuestId(guestId);
+    }
+
+    /**
+     * Checks if the GuestBook already contains a guest with the given Guest ID.
+     */
+    public boolean containsGuestId(String guestId) {
+        return guests.asUnmodifiableObservableList().stream()
+                .anyMatch(guest -> guest.getGuestId().value.equalsIgnoreCase(guestId));
+    }
 
     @Override
     public String toString() {

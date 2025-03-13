@@ -39,6 +39,10 @@ public class Guest {
         this.requests.addAll(requests);
     }
 
+    public GuestId getGuestId() {
+        return guestId;
+    }
+
     public Name getName() {
         return name;
     }

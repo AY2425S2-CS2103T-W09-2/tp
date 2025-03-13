@@ -12,6 +12,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.guestnote.commons.core.GuiSettings;
 import seedu.guestnote.commons.core.LogsCenter;
 import seedu.guestnote.model.guest.Guest;
+import seedu.guestnote.model.guest.GuestId;
 
 /**
  * Represents the in-memory model of the guestnote book data.
@@ -109,6 +110,11 @@ public class ModelManager implements Model {
         requireAllNonNull(target, editedGuest);
 
         guestBook.setGuest(target, editedGuest);
+    }
+
+    @Override
+    public GuestId generateUniqueGuestId() {
+        return guestBook.generateUniqueGuestId();
     }
 
     //=========== Filtered Guest List Accessors =============================================================

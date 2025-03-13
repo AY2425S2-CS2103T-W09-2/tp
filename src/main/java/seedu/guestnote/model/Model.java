@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 import javafx.collections.ObservableList;
 import seedu.guestnote.commons.core.GuiSettings;
 import seedu.guestnote.model.guest.Guest;
+import seedu.guestnote.model.guest.GuestId;
 
 /**
  * The API of the Model component.
@@ -51,6 +52,11 @@ public interface Model {
 
     /** Returns the GuestBook */
     ReadOnlyGuestBook getAddressBook();
+
+    /**
+     * Returns a randomly generated guestId upon adding a new guest
+     */
+    GuestId generateUniqueGuestId();
 
     /**
      * Returns true if a guest with the same identity as {@code guest} exists in the guestnote book.

@@ -23,6 +23,7 @@ import seedu.guestnote.logic.commands.exceptions.CommandException;
 import seedu.guestnote.model.Model;
 import seedu.guestnote.model.guest.Email;
 import seedu.guestnote.model.guest.Guest;
+import seedu.guestnote.model.guest.GuestId;
 import seedu.guestnote.model.guest.Name;
 import seedu.guestnote.model.guest.Phone;
 import seedu.guestnote.model.guest.RoomNumber;
@@ -95,13 +96,14 @@ public class EditCommand extends Command {
     private static Guest createEditedPerson(Guest guestToEdit, EditPersonDescriptor editPersonDescriptor) {
         assert guestToEdit != null;
 
+        GuestId updatedGuestId = guestToEdit.getGuestId();
         Name updatedName = editPersonDescriptor.getName().orElse(guestToEdit.getName());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(guestToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(guestToEdit.getEmail());
         RoomNumber updatedRoomNumber = editPersonDescriptor.getRoomNumber().orElse(guestToEdit.getRoomNumber());
         Set<Request> updatedRequests = editPersonDescriptor.getTags().orElse(guestToEdit.getRequests());
 
-        return new Guest(updatedName, updatedPhone, updatedEmail, updatedRoomNumber, updatedRequests);
+        return new Guest(updatedGuestId, updatedName, updatedPhone, updatedEmail, updatedRoomNumber, updatedRequests);
     }
 
     @Override
