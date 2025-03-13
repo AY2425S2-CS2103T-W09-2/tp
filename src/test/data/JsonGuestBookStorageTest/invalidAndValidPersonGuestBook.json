@@ -1,13 +1,15 @@
 {
   "persons": [ {
+    "guestId": "abcd",
     "name": "Valid Person",
     "phone": "9482424",
     "email": "hans@example.com",
-    "roomNumber": "04-22",
+    "roomNumber": "04-22"
   }, {
+    "guestId": "abcd",
     "name": "Person With Invalid Phone Field",
     "phone": "948asdf2424",
     "email": "hans@example.com",
-    "roomNumber": "04-22",
+    "roomNumber": "04-22"
   } ]
 }

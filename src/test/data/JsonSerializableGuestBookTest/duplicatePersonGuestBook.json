@@ -1,11 +1,13 @@
 {
   "persons": [ {
+    "guestId": "abcd",
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "alice@example.com",
     "roomNumber": "04-22",
     "tags": [ "friends" ]
   }, {
+    "guestId": "abcd",
     "name": "Alice Pauline",
     "phone": "94351253",
     "email": "pauline@example.com",

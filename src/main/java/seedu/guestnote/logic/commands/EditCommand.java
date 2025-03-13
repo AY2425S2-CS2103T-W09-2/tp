@@ -23,6 +23,7 @@ import seedu.guestnote.logic.commands.exceptions.CommandException;
 import seedu.guestnote.model.Model;
 import seedu.guestnote.model.guest.Email;
 import seedu.guestnote.model.guest.Guest;
+import seedu.guestnote.model.guest.GuestId;
 import seedu.guestnote.model.guest.Name;
 import seedu.guestnote.model.guest.Phone;
 import seedu.guestnote.model.guest.RoomNumber;
@@ -95,13 +96,14 @@ public class EditCommand extends Command {
     private static Guest createEditedPerson(Guest guestToEdit, EditPersonDescriptor editPersonDescriptor) {
         assert guestToEdit != null;
 
+        GuestId updatedGuestId = guestToEdit.getGuestId();
         Name updatedName = editPersonDescriptor.getName().orElse(guestToEdit.getName());
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(guestToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(guestToEdit.getEmail());
         RoomNumber updatedRoomNumber = editPersonDescriptor.getRoomNumber().orElse(guestToEdit.getRoomNumber());
         Set<Request> updatedRequests = editPersonDescriptor.getTags().orElse(guestToEdit.getRequests());
 
-        return new Guest(updatedName, updatedPhone, updatedEmail, updatedRoomNumber, updatedRequests);
+        return new Guest(updatedGuestId, updatedName, updatedPhone, updatedEmail, updatedRoomNumber, updatedRequests);
     }
 
     @Override
@@ -133,6 +135,7 @@ public class EditCommand extends Command {
      * corresponding field value of the guest.
      */
     public static class EditPersonDescriptor {
+        private GuestId guestId;
         private Name name;
         private Phone phone;
         private Email email;
@@ -146,6 +149,7 @@ public class EditCommand extends Command {
          * A defensive copy of {@code requests} is used internally.
          */
         public EditPersonDescriptor(EditPersonDescriptor toCopy) {
+            setGuestId(toCopy.guestId);
             setName(toCopy.name);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
@@ -157,8 +161,12 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, roomNumber, requests);
+            return CollectionUtil.isAnyNonNull(guestId, name, phone, email, roomNumber, requests);
         }
+
+        public void setGuestId(GuestId guestId) {this.guestId = guestId; }
+
+        public Optional<GuestId> getGuestId() { return Optional.ofNullable(guestId); }
 
         public void setName(Name name) {
             this.name = name;
@@ -221,7 +229,8 @@ public class EditCommand extends Command {
             }
 
             EditPersonDescriptor otherEditPersonDescriptor = (EditPersonDescriptor) other;
-            return Objects.equals(name, otherEditPersonDescriptor.name)
+            return Objects.equals(guestId, otherEditPersonDescriptor.guestId)
+                    && Objects.equals(name, otherEditPersonDescriptor.name)
                     && Objects.equals(phone, otherEditPersonDescriptor.phone)
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(roomNumber, otherEditPersonDescriptor.roomNumber)
@@ -232,6 +241,7 @@ public class EditCommand extends Command {
         public String toString() {
             return new ToStringBuilder(this)
                     .add("name", name)
+                    .add("guestId", guestId)
                     .add("phone", phone)
                     .add("email", email)
                     .add("roomNumber", roomNumber)

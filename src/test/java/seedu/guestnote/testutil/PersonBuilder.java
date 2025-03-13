@@ -3,11 +3,7 @@ package seedu.guestnote.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
-import seedu.guestnote.model.guest.Email;
-import seedu.guestnote.model.guest.Guest;
-import seedu.guestnote.model.guest.Name;
-import seedu.guestnote.model.guest.Phone;
-import seedu.guestnote.model.guest.RoomNumber;
+import seedu.guestnote.model.guest.*;
 import seedu.guestnote.model.request.Request;
 import seedu.guestnote.model.util.SampleDataUtil;
 
@@ -16,11 +12,13 @@ import seedu.guestnote.model.util.SampleDataUtil;
  */
 public class PersonBuilder {
 
+    public static final String DEFAULT_GUESTID = "abcd";
     public static final String DEFAULT_NAME = "Amy Bee";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ROOM_NUMBER = "00-00";
 
+    private GuestId guestId;
     private Name name;
     private Phone phone;
     private Email email;
@@ -31,6 +29,7 @@ public class PersonBuilder {
      * Creates a {@code PersonBuilder} with the default details.
      */
     public PersonBuilder() {
+        guestId = new GuestId(DEFAULT_GUESTID);
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
@@ -42,11 +41,20 @@ public class PersonBuilder {
      * Initializes the PersonBuilder with the data of {@code guestToCopy}.
      */
     public PersonBuilder(Guest guestToCopy) {
+        guestId = guestToCopy.getGuestId();
         name = guestToCopy.getName();
         phone = guestToCopy.getPhone();
         email = guestToCopy.getEmail();
         roomNumber = guestToCopy.getRoomNumber();
         requests = new HashSet<>(guestToCopy.getRequests());
+    }
+
+    /**
+     * Sets the {@code GuestId} of the {@code Guest} that we are building.
+     */
+    public PersonBuilder withGuestId(String guestId) {
+        this.guestId = new GuestId(guestId);
+        return this;
     }
 
     /**
@@ -90,7 +98,7 @@ public class PersonBuilder {
     }
 
     public Guest build() {
-        return new Guest(name, phone, email, roomNumber, requests);
+        return new Guest(guestId, name, phone, email, roomNumber, requests);
     }
 
 }

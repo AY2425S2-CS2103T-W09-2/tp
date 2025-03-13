@@ -23,6 +23,7 @@ import seedu.guestnote.model.Model;
 import seedu.guestnote.model.ReadOnlyGuestBook;
 import seedu.guestnote.model.ReadOnlyUserPrefs;
 import seedu.guestnote.model.guest.Guest;
+import seedu.guestnote.model.guest.GuestId;
 import seedu.guestnote.testutil.PersonBuilder;
 
 public class AddCommandTest {
@@ -146,6 +147,11 @@ public class AddCommandTest {
         @Override
         public void setPerson(Guest target, Guest editedGuest) {
             throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public GuestId generateUniqueGuestId() {
+            return new GuestId("GUEST-0001"); // Mock a unique guest ID for testing
         }
 
         @Override
