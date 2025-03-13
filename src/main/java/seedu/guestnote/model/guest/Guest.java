@@ -17,6 +17,7 @@ import seedu.guestnote.model.request.Request;
 public class Guest {
 
     // Identity fields
+    private final GuestId guestId;
     private final Name name;
     private final Phone phone;
     private final Email email;
@@ -28,8 +29,9 @@ public class Guest {
     /**
      * Every field must be present and not null.
      */
-    public Guest(Name name, Phone phone, Email email, RoomNumber roomNumber, Set<Request> requests) {
+    public Guest(GuestId guestId, Name name, Phone phone, Email email, RoomNumber roomNumber, Set<Request> requests) {
         requireAllNonNull(name, phone, email, requests);
+        this.guestId = guestId;
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -90,7 +92,8 @@ public class Guest {
         }
 
         Guest otherGuest = (Guest) other;
-        return name.equals(otherGuest.name)
+        return guestId.equals(otherGuest.guestId)
+                && name.equals(otherGuest.name)
                 && phone.equals(otherGuest.phone)
                 && email.equals(otherGuest.email)
                 && roomNumber.equals(otherGuest.roomNumber)
@@ -100,12 +103,13 @@ public class Guest {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, roomNumber, requests);
+        return Objects.hash(guestId, name, phone, email, roomNumber, requests);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
+                .add("guestId", guestId)
                 .add("name", name)
                 .add("phone", phone)
                 .add("email", email)
