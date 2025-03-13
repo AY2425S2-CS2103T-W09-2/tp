@@ -240,8 +240,8 @@ public class EditCommand extends Command {
         @Override
         public String toString() {
             return new ToStringBuilder(this)
-                    .add("guestId", guestId)
                     .add("name", name)
+                    .add("guestId", guestId)
                     .add("phone", phone)
                     .add("email", email)
                     .add("roomNumber", roomNumber)
