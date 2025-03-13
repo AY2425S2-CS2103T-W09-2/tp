@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import seedu.guestnote.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.guestnote.model.guest.Email;
 import seedu.guestnote.model.guest.Guest;
+import seedu.guestnote.model.guest.GuestId;
 import seedu.guestnote.model.guest.Name;
 import seedu.guestnote.model.guest.Phone;
 import seedu.guestnote.model.guest.RoomNumber;
@@ -32,11 +33,20 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder(Guest guest) {
         descriptor = new EditPersonDescriptor();
+        descriptor.setGuestId(guest.getGuestId());
         descriptor.setName(guest.getName());
         descriptor.setPhone(guest.getPhone());
         descriptor.setEmail(guest.getEmail());
         descriptor.setRoomNumber(guest.getRoomNumber());
         descriptor.setTags(guest.getRequests());
+    }
+
+    /**
+     * Sets the {@code Name} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withGuestId(String guestId) {
+        descriptor.setGuestId(new GuestId(guestId));
+        return this;
     }
 
     /**
