@@ -9,6 +9,7 @@ import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_ROOMNUMBER;
 import static seedu.guestnote.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -24,7 +25,10 @@ import seedu.guestnote.model.guest.Guest;
 import seedu.guestnote.model.guest.Name;
 import seedu.guestnote.model.guest.Phone;
 import seedu.guestnote.model.guest.RoomNumber;
+import seedu.guestnote.model.request.Request;
 import seedu.guestnote.model.request.UniqueRequestList;
+import seedu.guestnote.model.request.exceptions.DuplicateRequestException;
+import seedu.guestnote.model.request.exceptions.RequestNotFoundException;
 
 /**
  * Edits the details of an existing guest in the guestnote book.
@@ -51,6 +55,9 @@ public class EditCommand extends Command {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This guest already exists in the guestnote book.";
 
+    public static final String MESSAGE_DUPLICATE_REQUEST = "Duplicate request detected";
+    public static final String MESSAGE_REQUEST_NOT_FOUND = "This request does not exist in the guest";
+
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
 
@@ -76,7 +83,14 @@ public class EditCommand extends Command {
         }
 
         Guest guestToEdit = lastShownList.get(index.getZeroBased());
-        Guest editedGuest = createEditedPerson(guestToEdit, editPersonDescriptor);
+        Guest editedGuest;
+        try {
+            editedGuest = createEditedPerson(guestToEdit, editPersonDescriptor);
+        } catch (DuplicateRequestException e) {
+            throw new CommandException(MESSAGE_DUPLICATE_REQUEST + ": " + e.getErrorRequest());
+        } catch (RequestNotFoundException e) {
+            throw new CommandException(MESSAGE_REQUEST_NOT_FOUND + ": " + e.getErrorRequest());
+        }
 
         if (!guestToEdit.isSameGuest(editedGuest) && model.hasPerson(editedGuest)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
@@ -105,6 +119,19 @@ public class EditCommand extends Command {
 
         editPersonDescriptor.getRequestsToAdd().ifPresent(updatedRequests::addAll);
         editPersonDescriptor.getRequestsToDelete().ifPresent(updatedRequests::removeAll);
+        editPersonDescriptor.getRequestIndexesToDelete().ifPresent(indexes -> {
+            List<Request> requests = updatedRequests.asUnmodifiableObservableList();
+            for (Index idx : indexes) {
+                int zeroBasedIdx = idx.getZeroBased();
+                if (zeroBasedIdx < 0 || zeroBasedIdx >= requests.size()) {
+                    throw new RequestNotFoundException("Index Number " + idx.getOneBased());
+                }
+            }
+            List<Request> requestsToDeleteList = new ArrayList<>(
+                    indexes.stream().map(index -> requests.get(index.getZeroBased())).toList());
+
+            updatedRequests.removeAll(requestsToDeleteList);
+        });
 
         return new Guest(updatedName, updatedPhone, updatedEmail, updatedRoomNumber, updatedRequests);
     }
@@ -143,8 +170,9 @@ public class EditCommand extends Command {
         private Email email;
         private RoomNumber roomNumber;
         private UniqueRequestList requests;
-        private UniqueRequestList requestsToAdd;
-        private UniqueRequestList requestsToDelete;
+        private List<Request> requestsToAdd;
+        private List<Request> requestsToDelete;
+        private List<Index> requestIndexesToDelete;
 
         public EditPersonDescriptor() {}
 
@@ -160,13 +188,15 @@ public class EditCommand extends Command {
             setRequests(toCopy.requests);
             setRequestsToAdd(toCopy.requestsToAdd);
             setRequestsToDelete(toCopy.requestsToDelete);
+            setRequestIndexesToDelete(toCopy.requestIndexesToDelete);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, roomNumber, requestsToAdd, requestsToDelete);
+            return CollectionUtil.isAnyNonNull(name, phone, email, roomNumber,
+                    requestsToAdd, requestsToDelete, requestIndexesToDelete);
         }
 
         public void setName(Name name) {
@@ -218,22 +248,24 @@ public class EditCommand extends Command {
          * Sets {@code requestsToAdd} to this object's {@code requestsToAdd}.
          * A defensive copy of {@code requestsToAdd} is used internally.
          */
-        public void setRequestsToAdd(UniqueRequestList requestsToAdd) {
-            this.requestsToAdd = (requestsToAdd != null) ? new UniqueRequestList() : null;
-            if (requestsToAdd != null) {
-                this.requestsToAdd.setRequests(requestsToAdd);
-            }
+        public void setRequestsToAdd(List<Request> requestsToAdd) {
+            this.requestsToAdd = requestsToAdd;
         }
 
         /**
          * Sets {@code requestsToDelete} to this object's {@code requestsToDelete}.
          * A defensive copy of {@code requestsToDelete} is used internally.
          */
-        public void setRequestsToDelete(UniqueRequestList requestsToDelete) {
-            this.requestsToDelete = (requestsToDelete != null) ? new UniqueRequestList() : null;
-            if (requestsToDelete != null) {
-                this.requestsToDelete.setRequests(requestsToDelete);
-            }
+        public void setRequestsToDelete(List<Request> requestsToDelete) {
+            this.requestsToDelete = requestsToDelete;
+        }
+
+        /**
+         * Sets {@code requestIndexesToDelete} to this object's {@code requestIndexesToDelete}.
+         * A defensive copy of {@code requestIndexesToDelete} is used internally.
+         */
+        public void setRequestIndexesToDelete(List<Index> requestIndexesToDelete) {
+            this.requestIndexesToDelete = requestIndexesToDelete;
         }
 
         /**
@@ -241,7 +273,7 @@ public class EditCommand extends Command {
          * if modification is attempted.
          * Returns {@code Optional#empty()} if {@code requests} is null.
          */
-        public Optional<UniqueRequestList> getRequestsToAdd() {
+        public Optional<List<Request>> getRequestsToAdd() {
             return (requestsToAdd != null)
                     ? Optional.of(requestsToAdd)
                     : Optional.empty();
@@ -252,9 +284,20 @@ public class EditCommand extends Command {
          * if modification is attempted.
          * Returns {@code Optional#empty()} if {@code requests} is null.
          */
-        public Optional<UniqueRequestList> getRequestsToDelete() {
+        public Optional<List<Request>> getRequestsToDelete() {
             return (requestsToDelete != null)
                     ? Optional.of(requestsToDelete)
+                    : Optional.empty();
+        }
+
+        /**
+         * Returns an unmodifiable list of indexes for deleting, which throws {@code UnsupportedOperationException}
+         * if modification is attempted.
+         * Returns {@code Optional#empty()} if {@code requestIndexesToDelete} is null.
+         */
+        public Optional<List<Index>> getRequestIndexesToDelete() {
+            return (requestIndexesToDelete != null)
+                    ? Optional.of(requestIndexesToDelete)
                     : Optional.empty();
         }
 
@@ -275,7 +318,8 @@ public class EditCommand extends Command {
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(roomNumber, otherEditPersonDescriptor.roomNumber)
                     && Objects.equals(requestsToAdd, otherEditPersonDescriptor.requestsToAdd)
-                    && Objects.equals(requestsToDelete, otherEditPersonDescriptor.requestsToDelete);
+                    && Objects.equals(requestsToDelete, otherEditPersonDescriptor.requestsToDelete)
+                    && Objects.equals(requestIndexesToDelete, otherEditPersonDescriptor.requestIndexesToDelete);
         }
 
         @Override
@@ -287,6 +331,7 @@ public class EditCommand extends Command {
                     .add("roomNumber", roomNumber)
                     .add("requestsToAdd", requestsToAdd)
                     .add("requestsToDelete", requestsToDelete)
+                    .add("requestIndexesToDelete", requestIndexesToDelete)
                     .toString();
         }
     }

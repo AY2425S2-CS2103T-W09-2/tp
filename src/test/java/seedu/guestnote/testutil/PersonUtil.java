@@ -8,10 +8,13 @@ import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_REQUEST;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_ROOMNUMBER;
 
+import java.util.List;
+
 import seedu.guestnote.logic.commands.AddCommand;
 import seedu.guestnote.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.guestnote.model.guest.Guest;
-import seedu.guestnote.model.request.UniqueRequestList;
+import seedu.guestnote.model.request.Request;
+
 
 
 /**
@@ -52,7 +55,7 @@ public class PersonUtil {
         descriptor.getRoomNumber().ifPresent(roomNumber ->
                 sb.append(PREFIX_ROOMNUMBER).append(roomNumber.roomNumber).append(" "));
         if (descriptor.getRequestsToAdd().isPresent()) {
-            UniqueRequestList requests = descriptor.getRequestsToAdd().get();
+            List<Request> requests = descriptor.getRequestsToAdd().get();
             if (requests.isEmpty()) {
                 sb.append(PREFIX_ADD_REQUEST);
             } else {
@@ -60,7 +63,7 @@ public class PersonUtil {
             }
         }
         if (descriptor.getRequestsToAdd().isPresent()) {
-            UniqueRequestList requests = descriptor.getRequestsToAdd().get();
+            List<Request> requests = descriptor.getRequestsToAdd().get();
             if (requests.isEmpty()) {
                 sb.append(PREFIX_DELETE_REQUEST);
             } else {
