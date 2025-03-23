@@ -76,6 +76,16 @@ public interface Model {
      */
     void setPerson(Guest target, Guest editedGuest);
 
+    /**
+     * Returns true if there exists another guest in the guest list (excluding {@code guestToExclude})
+     * that has the same phone number or email as {@code guestToCheck}.
+     *
+     * <p>This is used to enforce uniqueness constraints on phone and email fields
+     * during operations like editing a guest, ensuring no duplicate phone or email values exist.</p>
+     */
+    boolean hasGuestWithDuplicatePhoneOrEmailExcluding(Guest guestToCheck, Guest guestToExclude);
+
+
     /** Returns an unmodifiable view of the filtered guest list */
     ObservableList<Guest> getFilteredPersonList();
 

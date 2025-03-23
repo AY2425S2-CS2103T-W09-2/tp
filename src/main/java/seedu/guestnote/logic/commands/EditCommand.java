@@ -50,6 +50,7 @@ public class EditCommand extends Command {
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Guest: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This guest already exists in the guestnote book.";
+    public static final String MESSAGE_EDIT_DUPLICATE_PERSON = "No fields have been edited.";
 
     private final Index index;
     private final EditPersonDescriptor editPersonDescriptor;
@@ -78,7 +79,11 @@ public class EditCommand extends Command {
         Guest guestToEdit = lastShownList.get(index.getZeroBased());
         Guest editedGuest = createEditedPerson(guestToEdit, editPersonDescriptor);
 
-        if (!guestToEdit.isSameGuest(editedGuest) && model.hasPerson(editedGuest)) {
+        if (guestToEdit.equals(editedGuest)) {
+            throw new CommandException(MESSAGE_EDIT_DUPLICATE_PERSON);
+        }
+
+        if (model.hasGuestWithDuplicatePhoneOrEmailExcluding(editedGuest, guestToEdit)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
