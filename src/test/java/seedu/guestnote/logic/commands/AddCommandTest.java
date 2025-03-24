@@ -149,6 +149,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public boolean hasGuestWithDuplicatePhoneOrEmailExcluding(Guest guestToCheck, Guest guestToExclude) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public ObservableList<Guest> getFilteredPersonList() {
             throw new AssertionError("This method should not be called.");
         }

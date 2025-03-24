@@ -111,6 +111,15 @@ public class ModelManager implements Model {
         guestBook.setGuest(target, editedGuest);
     }
 
+    @Override
+    public boolean hasGuestWithDuplicatePhoneOrEmailExcluding(Guest editedGuest, Guest guestToExclude) {
+        return guestBook.getGuestList().stream()
+                .filter(g -> !g.equals(guestToExclude))
+                .anyMatch(g -> g.getPhone().equals(editedGuest.getPhone())
+                        || g.getEmail().equals(editedGuest.getEmail()));
+    }
+
+
     //=========== Filtered Guest List Accessors =============================================================
 
     /**
