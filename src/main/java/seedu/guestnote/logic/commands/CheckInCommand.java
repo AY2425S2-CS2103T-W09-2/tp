@@ -10,6 +10,7 @@ import seedu.guestnote.logic.Messages;
 import seedu.guestnote.logic.commands.exceptions.CommandException;
 import seedu.guestnote.model.Model;
 import seedu.guestnote.model.guest.Guest;
+import seedu.guestnote.model.guest.Phone;
 import seedu.guestnote.model.guest.Status;
 import seedu.guestnote.model.request.UniqueRequestList;
 
@@ -56,7 +57,7 @@ public class CheckInCommand extends Command {
 
         Guest checkedInGuest = new Guest(
                 guestToCheckIn.getName(),
-                guestToCheckIn.getPhone(),
+                guestToCheckIn.getPhone().orElse(new Phone("")),
                 guestToCheckIn.getEmail(),
                 guestToCheckIn.getRoomNumber(),
                 Status.CHECKED_IN,

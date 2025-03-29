@@ -44,7 +44,7 @@ public class GuestBuilder {
      */
     public GuestBuilder(Guest guestToCopy) {
         name = guestToCopy.getName();
-        phone = guestToCopy.getPhone();
+        phone = guestToCopy.getPhone().orElse(new Phone("")); // Default phone if absent
         email = guestToCopy.getEmail();
         roomNumber = guestToCopy.getRoomNumber();
         status = guestToCopy.getStatus();

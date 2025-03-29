@@ -110,7 +110,7 @@ public class EditCommand extends Command {
         assert guestToEdit != null;
 
         Name updatedName = editGuestDescriptor.getName().orElse(guestToEdit.getName());
-        Phone updatedPhone = editGuestDescriptor.getPhone().orElse(guestToEdit.getPhone());
+        Phone updatedPhone = editGuestDescriptor.getPhone().orElse(guestToEdit.getPhone().orElse(new Phone("")));
         Email updatedEmail = editGuestDescriptor.getEmail().orElse(guestToEdit.getEmail());
         RoomNumber updatedRoomNumber = editGuestDescriptor.getRoomNumber().orElse(guestToEdit.getRoomNumber());
         Status updatedStatus = guestToEdit.getStatus();

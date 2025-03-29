@@ -34,7 +34,7 @@ public class EditGuestDescriptorBuilder {
     public EditGuestDescriptorBuilder(Guest guest) {
         descriptor = new EditGuestDescriptor();
         descriptor.setName(guest.getName());
-        descriptor.setPhone(guest.getPhone());
+        descriptor.setPhone(guest.getPhone().orElse(new Phone("")));
         descriptor.setEmail(guest.getEmail());
         descriptor.setRoomNumber(guest.getRoomNumber());
         UniqueRequestList copiedList = new UniqueRequestList();

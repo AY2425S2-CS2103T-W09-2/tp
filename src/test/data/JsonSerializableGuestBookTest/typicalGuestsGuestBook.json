@@ -49,5 +49,10 @@
     "roomNumber" : "03-33",
     "status" : "BOOKING",
     "requests" : [ ]
+  }, {
+    "name" : "Jay Chua",
+    "email": "jayc@example.com",
+    "roomNumber": "05-33",
+    "status" : "BOOKING"
   } ]
 }

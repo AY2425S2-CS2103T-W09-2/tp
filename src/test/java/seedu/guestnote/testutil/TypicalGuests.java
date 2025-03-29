@@ -18,8 +18,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.guestnote.model.GuestBook;
+import seedu.guestnote.model.guest.Email;
 import seedu.guestnote.model.guest.Guest;
+import seedu.guestnote.model.guest.Name;
+import seedu.guestnote.model.guest.RoomNumber;
 import seedu.guestnote.model.guest.Status;
+import seedu.guestnote.model.request.UniqueRequestList;
 
 
 /**
@@ -92,6 +96,15 @@ public class TypicalGuests {
             .withRoomNumber("01-09")
             .build();
 
+    public static final Guest JAY = new GuestBuilder(
+            new Guest(new Name("Jay Chua"),
+                null,
+                new Email("jayc@example.com"),
+                new RoomNumber("05-33"),
+                Status.BOOKING, new UniqueRequestList())
+                )
+            .build();
+
     // Manually added - Guest's details found in {@code CommandTestUtil}
     public static final Guest AMY = new GuestBuilder()
             .withName(VALID_NAME_AMY)
@@ -126,6 +139,6 @@ public class TypicalGuests {
     }
 
     public static List<Guest> getTypicalGuests() {
-        return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
+        return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE, JAY));
     }
 }

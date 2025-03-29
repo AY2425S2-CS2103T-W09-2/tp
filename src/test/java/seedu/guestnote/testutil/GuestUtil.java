@@ -13,6 +13,7 @@ import java.util.List;
 import seedu.guestnote.logic.commands.AddCommand;
 import seedu.guestnote.logic.commands.EditCommand.EditGuestDescriptor;
 import seedu.guestnote.model.guest.Guest;
+import seedu.guestnote.model.guest.Phone;
 import seedu.guestnote.model.request.Request;
 
 
@@ -35,7 +36,7 @@ public class GuestUtil {
     public static String getGuestDetails(Guest guest) {
         StringBuilder sb = new StringBuilder();
         sb.append(PREFIX_NAME + guest.getName().fullName + " ");
-        sb.append(PREFIX_PHONE + guest.getPhone().value + " ");
+        sb.append(PREFIX_PHONE + guest.getPhone().orElse(new Phone("")).toString() + " ");
         sb.append(PREFIX_EMAIL + guest.getEmail().value + " ");
         sb.append(PREFIX_ROOMNUMBER + guest.getRoomNumber().roomNumber + " ");
         guest.getRequests().stream().forEach(

@@ -24,7 +24,7 @@ public class JsonAdaptedGuestTest {
     private static final String INVALID_ROOMNUMBER = " ";
     private static final String INVALID_REQUEST = "#friend";
     private static final String VALID_NAME = BENSON.getName().toString();
-    private static final String VALID_PHONE = BENSON.getPhone().toString();
+    private static final String VALID_PHONE = BENSON.getPhone().map(Phone::toString).orElse("Not Added");
     private static final String VALID_EMAIL = BENSON.getEmail().toString();
     private static final String VALID_ROOMNUMBER = BENSON.getRoomNumber().toString();
     private static final String VALID_STATUS = BENSON.getStatus().toString();
@@ -60,14 +60,6 @@ public class JsonAdaptedGuestTest {
                 new JsonAdaptedGuest(
                         VALID_NAME, INVALID_PHONE, VALID_EMAIL, VALID_ROOMNUMBER, VALID_STATUS, VALID_REQUESTS);
         String expectedMessage = Phone.MESSAGE_CONSTRAINTS;
-        assertThrows(IllegalValueException.class, expectedMessage, guest::toModelType);
-    }
-
-    @Test
-    public void toModelType_nullPhone_throwsIllegalValueException() {
-        JsonAdaptedGuest guest = new JsonAdaptedGuest(
-                VALID_NAME, null, VALID_EMAIL, VALID_ROOMNUMBER, VALID_STATUS, VALID_REQUESTS);
-        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, guest::toModelType);
     }
 

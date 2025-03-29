@@ -3,6 +3,7 @@ package seedu.guestnote.model.guest;
 import static seedu.guestnote.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import javafx.collections.ObservableList;
 import seedu.guestnote.commons.util.ToStringBuilder;
@@ -31,9 +32,9 @@ public class Guest {
      */
     public Guest(Name name, Phone phone, Email email, RoomNumber roomNumber, Status status,
                  UniqueRequestList requests) {
-        requireAllNonNull(name, phone, email, requests);
+        requireAllNonNull(name, email, requests);
         this.name = name;
-        this.phone = phone;
+        this.phone = phone != null ? phone : new Phone(""); // or use null depending on your preference
         this.email = email;
         this.roomNumber = roomNumber;
         this.status = status;
@@ -44,8 +45,8 @@ public class Guest {
         return name;
     }
 
-    public Phone getPhone() {
-        return phone;
+    public Optional<Phone> getPhone() {
+        return Optional.ofNullable(phone);
     }
 
     public Email getEmail() {

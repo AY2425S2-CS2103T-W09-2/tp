@@ -6,6 +6,7 @@ import java.util.stream.Stream;
 
 import seedu.guestnote.logic.parser.Prefix;
 import seedu.guestnote.model.guest.Guest;
+import seedu.guestnote.model.guest.Phone;
 
 /**
  * Container for user visible messages.
@@ -38,7 +39,7 @@ public class Messages {
         final StringBuilder builder = new StringBuilder();
         builder.append(guest.getName())
                 .append("; Phone: ")
-                .append(guest.getPhone())
+                .append(guest.getPhone().orElse(new Phone("")))
                 .append("; Email: ")
                 .append(guest.getEmail())
                 .append("; Requests: ");

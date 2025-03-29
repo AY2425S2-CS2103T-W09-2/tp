@@ -12,6 +12,7 @@ import static seedu.guestnote.logic.commands.CommandTestUtil.assertCommandFailur
 import static seedu.guestnote.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.guestnote.logic.commands.CommandTestUtil.showGuestAtIndex;
 import static seedu.guestnote.testutil.TypicalGuests.getTypicalAddressBook;
+import static seedu.guestnote.testutil.TypicalIndexes.INDEX_EIGHTH_GUEST;
 import static seedu.guestnote.testutil.TypicalIndexes.INDEX_FIRST_GUEST;
 import static seedu.guestnote.testutil.TypicalIndexes.INDEX_SECOND_GUEST;
 
@@ -121,6 +122,44 @@ public class EditCommandTest {
                 new EditGuestDescriptorBuilder(guestInList).build());
 
         assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_GUEST);
+    }
+
+    /**
+     * Tests the execution of editing a guest that originally does not have a phone number.
+     * This test ensures that the phone number is successfully updated to the new value
+     * when an edit command is executed on the guest.
+     */
+    @Test
+    public void execute_originalGuestWithNoPhone_editSuccess() {
+        Guest editedGuest = new GuestBuilder().withPhone("81234567").build();
+        EditGuestDescriptor descriptor = new EditGuestDescriptorBuilder(editedGuest).build();
+        EditCommand editCommand = new EditCommand(INDEX_EIGHTH_GUEST, descriptor);
+
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_GUEST_SUCCESS, Messages.format(editedGuest));
+
+        Model expectedModel = new ModelManager(new GuestBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.setGuest(model.getFilteredGuestList().get(7), editedGuest);
+
+        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+    }
+
+    /**
+     * Tests the execution of editing a guest that originally has a different phone number.
+     * This test ensures that the phone number is successfully updated to the new value
+     * when an edit command is executed on the guest.
+     */
+    @Test
+    public void execute_originalGuestWithPhone_editSuccess() {
+        Guest editedGuest = new GuestBuilder().withPhone("81234567").withRequests("friend").build();
+        EditGuestDescriptor descriptor = new EditGuestDescriptorBuilder(editedGuest).build();
+        EditCommand editCommand = new EditCommand(INDEX_FIRST_GUEST, descriptor);
+
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_GUEST_SUCCESS, Messages.format(editedGuest));
+
+        Model expectedModel = new ModelManager(new GuestBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.setGuest(model.getFilteredGuestList().get(0), editedGuest);
+
+        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
 
     @Test

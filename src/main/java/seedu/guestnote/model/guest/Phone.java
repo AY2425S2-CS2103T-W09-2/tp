@@ -22,8 +22,12 @@ public class Phone {
      */
     public Phone(String phone) {
         requireNonNull(phone);
-        checkArgument(isValidPhone(phone), MESSAGE_CONSTRAINTS);
-        value = phone;
+        if (phone.isEmpty()) {
+            this.value = null; // Or set to a default value if desired
+        } else {
+            checkArgument(isValidPhone(phone), MESSAGE_CONSTRAINTS);
+            this.value = phone;
+        }
     }
 
     /**
@@ -40,17 +44,19 @@ public class Phone {
 
     @Override
     public boolean equals(Object other) {
-        if (other == this) {
+        if (this == other) {
             return true;
         }
 
-        // instanceof handles nulls
-        if (!(other instanceof Phone)) {
+        if (other == null || getClass() != other.getClass()) {
             return false;
         }
 
         Phone otherPhone = (Phone) other;
-        return value.equals(otherPhone.value);
+        if (this.value == null || otherPhone.value == null) {
+            return this.value == otherPhone.value;
+        }
+        return this.value.equals(otherPhone.value);
     }
 
     @Override

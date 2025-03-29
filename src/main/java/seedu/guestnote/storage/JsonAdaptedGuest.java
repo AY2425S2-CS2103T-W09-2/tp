@@ -56,7 +56,7 @@ class JsonAdaptedGuest {
      */
     public JsonAdaptedGuest(Guest source) {
         name = source.getName().fullName;
-        phone = source.getPhone().value;
+        phone = source.getPhone().map(Phone::toString).orElse(null);
         email = source.getEmail().value;
         roomNumber = source.getRoomNumber().roomNumber;
         status = source.getStatus().name();
@@ -84,13 +84,10 @@ class JsonAdaptedGuest {
         }
         final Name modelName = new Name(name);
 
-        if (phone == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName()));
-        }
-        if (!Phone.isValidPhone(phone)) {
+        if (phone != null && !Phone.isValidPhone(phone)) {
             throw new IllegalValueException(Phone.MESSAGE_CONSTRAINTS);
         }
-        final Phone modelPhone = new Phone(phone);
+        final Phone modelPhone = phone == null ? new Phone("") : new Phone(phone);
 
         if (email == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));

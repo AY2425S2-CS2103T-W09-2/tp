@@ -45,6 +45,23 @@ public class AddCommandTest {
     }
 
     @Test
+    public void execute_guestWithNoPhoneAcceptedByModel_addSuccessful() throws Exception {
+        ModelStubAcceptingGuestAdded modelStub = new ModelStubAcceptingGuestAdded();
+        Guest alice = new GuestBuilder()
+                .withName("Alice")
+                .withEmail("aliceyeo@gmail.com")
+                .withRoomNumber("03-20")
+                .withRequests("friend")
+                .build();
+
+        CommandResult commandResult = new AddCommand(alice).execute(modelStub);
+
+        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, Messages.format(alice)),
+                commandResult.getFeedbackToUser());
+        assertEquals(Arrays.asList(alice), modelStub.guestsAdded);
+    }
+
+    @Test
     public void execute_duplicateGuest_throwsCommandException() {
         Guest validGuest = new GuestBuilder().build();
         AddCommand addCommand = new AddCommand(validGuest);
