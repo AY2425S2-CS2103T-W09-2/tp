@@ -113,7 +113,6 @@
     },
     {
       "src": "UserGuide.md",
-      "title": "User Guide",
       "headings": {
         "guestnote-user-guide": "GuestNote User Guide",
         "quick-start": "Quick start",
