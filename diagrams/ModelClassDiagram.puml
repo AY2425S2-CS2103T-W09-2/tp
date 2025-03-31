@@ -38,10 +38,10 @@ UserPrefs .up.|> ReadOnlyUserPrefs
 
 AddressBook *--> "1" UniqueGuestList
 UniqueGuestList --> "~* all" Guest
-Guest *--> Name
-Guest *--> Phone
-Guest *--> Email
-Guest *--> RoomNumber
+Guest *--> "1" "Name
+Guest *--> "0..1" Phone
+Guest *--> "1" "Email
+Guest *--> "1" "RoomNumber
 Guest *--> "~* all" UniqueRequestsList
 UniqueRequestsList --> "~* all" Request
 
