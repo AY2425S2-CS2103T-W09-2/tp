@@ -1,7 +1,6 @@
 package seedu.guestnote.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import seedu.guestnote.model.GuestNote;
 import static seedu.guestnote.testutil.Assert.assertThrows;
 
 import java.nio.file.Path;
@@ -11,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.guestnote.commons.exceptions.IllegalValueException;
 import seedu.guestnote.commons.util.JsonUtil;
+import seedu.guestnote.model.GuestNote;
 import seedu.guestnote.testutil.TypicalGuests;
 
 public class JsonSerializableGuestNoteTest {
