@@ -24,9 +24,9 @@ import seedu.guestnote.logic.commands.FindCommand;
 import seedu.guestnote.logic.commands.HelpCommand;
 import seedu.guestnote.logic.commands.ListCommand;
 import seedu.guestnote.logic.parser.exceptions.ParseException;
+import seedu.guestnote.model.guest.AnyFieldContainsKeywordsPredicate;
 import seedu.guestnote.model.guest.FieldContainsKeywordsPredicate;
 import seedu.guestnote.model.guest.Guest;
-import seedu.guestnote.model.guest.MultiPredicate;
 import seedu.guestnote.testutil.EditGuestDescriptorBuilder;
 import seedu.guestnote.testutil.GuestBuilder;
 import seedu.guestnote.testutil.GuestUtil;
@@ -92,7 +92,7 @@ public class GuestNoteParserTest {
         FindCommand command = (FindCommand) parser.parseCommand(input);
 
         FindCommand expectedCommand = new FindCommand(
-                new MultiPredicate(Arrays.asList(
+                new AnyFieldContainsKeywordsPredicate(Arrays.asList(
                         new FieldContainsKeywordsPredicate<>(Guest::getName, keywords),
                         new FieldContainsKeywordsPredicate<>(Guest::getPhone, keywords),
                         new FieldContainsKeywordsPredicate<>(Guest::getEmail, keywords),

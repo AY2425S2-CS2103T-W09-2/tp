@@ -3,7 +3,7 @@ package seedu.guestnote.logic.commands;
 import static seedu.guestnote.model.Model.PREDICATE_SHOW_ALL_GUESTS;
 
 import seedu.guestnote.model.Model;
-import seedu.guestnote.model.guest.NameContainsSubstringsPredicate;
+import seedu.guestnote.model.guest.NameContainsKeywordsPredicate;
 
 /**
  * Lists all guests in the guest book.
@@ -15,7 +15,7 @@ public class ListCommand extends Command {
     public static final String COMMAND_WORD = "list";
     public static final String MESSAGE_SUCCESS = "Listed all guests";
     private final boolean listWithRequests;
-    private final NameContainsSubstringsPredicate predicate;
+    private final NameContainsKeywordsPredicate predicate;
     /**
      * Constructs a ListCommand that lists all guests.
      */
@@ -27,7 +27,7 @@ public class ListCommand extends Command {
      * Constructs a ListCommand that lists guests based on the provided search query.
      * @param predicate The predicate used to filter the guest list.
      */
-    public ListCommand(NameContainsSubstringsPredicate predicate) {
+    public ListCommand(NameContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
         this.listWithRequests = false;
     }
@@ -40,16 +40,6 @@ public class ListCommand extends Command {
         this.predicate = null;
         this.listWithRequests = listWithRequests;
     }
-
-    /**
-     * Constructs a ListCommand that lists guests based on the provided search query and includes guests with requests.
-     * @param listWithRequests
-     * @param predicate The predicate used to filter the guest list.
-     */
-    public ListCommand(boolean listWithRequests, NameContainsSubstringsPredicate predicate) {
-        this.predicate = predicate;
-        this.listWithRequests = listWithRequests;
-    }
     /**
      * Executes the list command and returns the result.
      * If a search query is provided, the command filters the guest list by matching the guest's name or ID.
@@ -60,20 +50,19 @@ public class ListCommand extends Command {
      */
     @Override
     public CommandResult execute(Model model) {
-        // Update the filtered list based on provided parameters.
-        if (listWithRequests && predicate != null) {
-            model.updateFilteredGuestList(guest ->
-                !guest.getRequests().isEmpty() && predicate.test(guest));
-            return new CommandResult("Listed guests with requests matching filter");
-        } else if (listWithRequests) {
+        // Update the filtered list to show all guests.
+        if (listWithRequests) {
             model.updateFilteredGuestList(guest -> !guest.getRequests().isEmpty());
             return new CommandResult("Listed all guests with requests");
-        } else if (predicate != null) {
-            model.updateFilteredGuestList(predicate);
-            return new CommandResult(MESSAGE_SUCCESS + " (filtered)");
-        } else {
+        }
+        if (predicate == null) {
+            // Default behavior: list all guests
             model.updateFilteredGuestList(PREDICATE_SHOW_ALL_GUESTS);
             return new CommandResult(MESSAGE_SUCCESS);
+        } else {
+            // Search behavior: filter list based on the predicate
+            model.updateFilteredGuestList(predicate);
+            return new CommandResult(MESSAGE_SUCCESS + " (filtered)");
         }
 
     }

@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Test;
 
 import seedu.guestnote.logic.commands.FindCommand;
 import seedu.guestnote.logic.parser.exceptions.ParseException;
+import seedu.guestnote.model.guest.AnyFieldContainsKeywordsPredicate;
 import seedu.guestnote.model.guest.FieldContainsKeywordsPredicate;
 import seedu.guestnote.model.guest.Guest;
-import seedu.guestnote.model.guest.MultiPredicate;
 
 public class FindCommandParserTest {
 
@@ -27,7 +27,7 @@ public class FindCommandParserTest {
     public void parse_validArgs_returnsFindCommand() throws ParseException {
         // Build the expected FindCommand with the composite predicate.
         FindCommand expectedFindCommand = new FindCommand(
-                new MultiPredicate(Arrays.asList(
+                new AnyFieldContainsKeywordsPredicate(Arrays.asList(
                         new FieldContainsKeywordsPredicate<>(Guest::getName, Arrays.asList("Alice", "Bob")),
                         new FieldContainsKeywordsPredicate<>(Guest::getPhone, Arrays.asList("Alice", "Bob")),
                         new FieldContainsKeywordsPredicate<>(Guest::getEmail, Arrays.asList("Alice", "Bob")),
@@ -46,7 +46,7 @@ public class FindCommandParserTest {
         String meaningfulActual = idx != -1 ? actualStr.substring(idx) : actualStr;
 
         // The expected meaningful output. Adjust this if needed.
-        String expectedMeaningful = "FindCommand{predicate=MultiPredicate{predicateCount=6}}";
+        String expectedMeaningful = "FindCommand{predicate=AnyFieldContainsKeywordsPredicate{predicateCount=6}}";
 
         assertTrue(meaningfulActual.contains(expectedMeaningful));
 

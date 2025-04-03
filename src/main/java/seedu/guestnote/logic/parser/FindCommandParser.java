@@ -9,9 +9,9 @@ import java.util.function.Predicate;
 
 import seedu.guestnote.logic.commands.FindCommand;
 import seedu.guestnote.logic.parser.exceptions.ParseException;
-import seedu.guestnote.model.guest.FieldContainsSubstringsPredicate;
+import seedu.guestnote.model.guest.AnyFieldContainsKeywordsPredicate;
+import seedu.guestnote.model.guest.FieldContainsKeywordsPredicate;
 import seedu.guestnote.model.guest.Guest;
-import seedu.guestnote.model.guest.MultiPredicate;
 
 /**
  * Parses input arguments and creates a new FindCommand object
@@ -33,14 +33,14 @@ public class FindCommandParser implements Parser<FindCommand> {
         String[] keywords = trimmedArgs.split("\\s+");
 
         List<Predicate<Guest>> fieldPredicates = new ArrayList<>();
-        fieldPredicates.add(new FieldContainsSubstringsPredicate<>(Guest::getName, Arrays.asList(keywords)));
-        fieldPredicates.add(new FieldContainsSubstringsPredicate<>(Guest::getPhone, Arrays.asList(keywords)));
-        fieldPredicates.add(new FieldContainsSubstringsPredicate<>(Guest::getEmail, Arrays.asList(keywords)));
-        fieldPredicates.add(new FieldContainsSubstringsPredicate<>(Guest::getStatus, Arrays.asList(keywords)));
-        fieldPredicates.add(new FieldContainsSubstringsPredicate<>(Guest::getRoomNumber, Arrays.asList(keywords)));
-        fieldPredicates.add(new FieldContainsSubstringsPredicate<>(Guest::getRequestsArray, Arrays.asList(keywords)));
+        fieldPredicates.add(new FieldContainsKeywordsPredicate<>(Guest::getName, Arrays.asList(keywords)));
+        fieldPredicates.add(new FieldContainsKeywordsPredicate<>(Guest::getPhone, Arrays.asList(keywords)));
+        fieldPredicates.add(new FieldContainsKeywordsPredicate<>(Guest::getEmail, Arrays.asList(keywords)));
+        fieldPredicates.add(new FieldContainsKeywordsPredicate<>(Guest::getStatus, Arrays.asList(keywords)));
+        fieldPredicates.add(new FieldContainsKeywordsPredicate<>(Guest::getRoomNumber, Arrays.asList(keywords)));
+        fieldPredicates.add(new FieldContainsKeywordsPredicate<>(Guest::getRequestsArray, Arrays.asList(keywords)));
         //add more field predicates here
-        Predicate<Guest> compositePredicate = new MultiPredicate(fieldPredicates);
+        Predicate<Guest> compositePredicate = new AnyFieldContainsKeywordsPredicate(fieldPredicates);
         return new FindCommand(compositePredicate);
     }
 

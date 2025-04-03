@@ -9,10 +9,10 @@ import seedu.guestnote.commons.util.ToStringBuilder;
 /**
  * Tests that a {@code Guest}'s {@code Name} matches any of the keywords given.
  */
-public class NameContainsSubstringsPredicate implements Predicate<Guest> {
+public class NameContainsKeywordsPredicate implements Predicate<Guest> {
     private final List<String> keywords;
 
-    public NameContainsSubstringsPredicate(List<String> keywords) {
+    public NameContainsKeywordsPredicate(List<String> keywords) {
         this.keywords = keywords;
     }
 
@@ -29,12 +29,12 @@ public class NameContainsSubstringsPredicate implements Predicate<Guest> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof NameContainsSubstringsPredicate)) {
+        if (!(other instanceof NameContainsKeywordsPredicate)) {
             return false;
         }
 
-        NameContainsSubstringsPredicate otherNameContainsSubstringsPredicate = (NameContainsSubstringsPredicate) other;
-        return keywords.equals(otherNameContainsSubstringsPredicate.keywords);
+        NameContainsKeywordsPredicate otherNameContainsKeywordsPredicate = (NameContainsKeywordsPredicate) other;
+        return keywords.equals(otherNameContainsKeywordsPredicate.keywords);
     }
 
     @Override

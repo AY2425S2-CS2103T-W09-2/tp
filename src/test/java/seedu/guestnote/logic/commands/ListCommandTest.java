@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import seedu.guestnote.model.Model;
 import seedu.guestnote.model.ModelManager;
 import seedu.guestnote.model.UserPrefs;
-import seedu.guestnote.model.guest.NameContainsSubstringsPredicate;
+import seedu.guestnote.model.guest.NameContainsKeywordsPredicate;
 
 
 /**
@@ -44,7 +44,7 @@ public class ListCommandTest {
     @Test
     public void execute_listWithFilter_showsFiltered() {
         List<String> keywords = List.of("Alice", "Bob");
-        NameContainsSubstringsPredicate predicate = new NameContainsSubstringsPredicate(keywords);
+        NameContainsKeywordsPredicate predicate = new NameContainsKeywordsPredicate(keywords);
         model.updateFilteredGuestList(predicate);
         expectedModel.updateFilteredGuestList(predicate);
         assertCommandSuccess(

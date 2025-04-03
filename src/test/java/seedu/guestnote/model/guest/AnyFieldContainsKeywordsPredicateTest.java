@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import seedu.guestnote.model.request.Request;
 import seedu.guestnote.model.request.UniqueRequestList;
 
-public class MultiPredicateTest {
+public class AnyFieldContainsKeywordsPredicateTest {
 
     /**
      * Helper method to create a Guest object.
@@ -39,8 +39,8 @@ public class MultiPredicateTest {
                         guest -> guest.getName().toString(), Collections.singletonList("Alice"));
         Predicate<Guest> emailPredicate =
                 new FieldContainsKeywordsPredicate<>(Guest::getEmail, Collections.singletonList("alice@example.com"));
-        MultiPredicate compositePredicate =
-                new MultiPredicate(Arrays.asList(namePredicate, emailPredicate));
+        AnyFieldContainsKeywordsPredicate compositePredicate =
+                new AnyFieldContainsKeywordsPredicate(Arrays.asList(namePredicate, emailPredicate));
 
         // Create a guest whose name contains "Alice", and the email is the predicate.
         Guest guest = createGuest("Alice Wonderland", "alice@example.com", "Need wifi");
@@ -55,8 +55,8 @@ public class MultiPredicateTest {
                         guest -> guest.getName().toString(), Collections.singletonList("Alice"));
         Predicate<Guest> emailPredicate =
                 new FieldContainsKeywordsPredicate<>(Guest::getEmail, Collections.singletonList("alice@example.com"));
-        MultiPredicate compositePredicate =
-                new MultiPredicate(Arrays.asList(namePredicate, emailPredicate));
+        AnyFieldContainsKeywordsPredicate compositePredicate =
+                new AnyFieldContainsKeywordsPredicate(Arrays.asList(namePredicate, emailPredicate));
 
         // Create a guest that does not match the name predicate but does have matching email.
         // Since our helper always uses dummy@example.com, we manually construct this Guest.
@@ -74,8 +74,8 @@ public class MultiPredicateTest {
                         guest -> guest.getName().toString(), Collections.singletonList("Charlie"));
         Predicate<Guest> emailPredicate =
                 new FieldContainsKeywordsPredicate<>(Guest::getEmail, Collections.singletonList("charlie@example.com"));
-        MultiPredicate compositePredicate =
-                new MultiPredicate(Arrays.asList(namePredicate, emailPredicate));
+        AnyFieldContainsKeywordsPredicate compositePredicate =
+                new AnyFieldContainsKeywordsPredicate(Arrays.asList(namePredicate, emailPredicate));
 
         // Create a guest that does not match either predicate.
         Guest guest = createGuest("Alice Wonderland", "dummy@example.com", "Need wifi");

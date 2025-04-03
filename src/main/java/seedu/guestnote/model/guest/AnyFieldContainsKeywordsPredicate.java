@@ -11,10 +11,10 @@ import java.util.function.Predicate;
  * so that a Guest is considered a match if at least one predicate returns true.
  * </p>
  */
-public class MultiPredicate implements Predicate<Guest> {
+public class AnyFieldContainsKeywordsPredicate implements Predicate<Guest> {
     private final List<Predicate<Guest>> predicates;
 
-    public MultiPredicate(List<Predicate<Guest>> predicates) {
+    public AnyFieldContainsKeywordsPredicate(List<Predicate<Guest>> predicates) {
         this.predicates = predicates;
     }
 

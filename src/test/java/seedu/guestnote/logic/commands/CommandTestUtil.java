@@ -19,7 +19,7 @@ import seedu.guestnote.logic.commands.exceptions.CommandException;
 import seedu.guestnote.model.GuestNote;
 import seedu.guestnote.model.Model;
 import seedu.guestnote.model.guest.Guest;
-import seedu.guestnote.model.guest.NameContainsSubstringsPredicate;
+import seedu.guestnote.model.guest.NameContainsKeywordsPredicate;
 import seedu.guestnote.model.guest.Status;
 import seedu.guestnote.testutil.EditGuestDescriptorBuilder;
 
@@ -128,7 +128,7 @@ public class CommandTestUtil {
 
         Guest guest = model.getFilteredGuestList().get(targetIndex.getZeroBased());
         final String[] splitName = guest.getName().fullName.split("\\s+");
-        model.updateFilteredGuestList(new NameContainsSubstringsPredicate(Arrays.asList(splitName[0])));
+        model.updateFilteredGuestList(new NameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
         assertEquals(1, model.getFilteredGuestList().size());
     }
