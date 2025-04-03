@@ -120,8 +120,11 @@
     },
     {
       "src": "UserGuide.md",
+      "title": "User Guide",
       "headings": {
         "guestnote-user-guide": "GuestNote User Guide",
+        "table-of-contents": "Table of Contents",
+        "how-to-use-our-user-guide": "How to use our User Guide",
         "quick-start": "Quick start",
         "features": "Features",
         "viewing-help-help": "Viewing help : help",
@@ -139,7 +142,9 @@
         "extended-find-coming-in-v1-4": "Extended Find [coming in v1.4]",
         "faq": "FAQ",
         "known-issues": "Known issues",
-        "command-summary": "Command summary"
+        "command-summary": "Command summary",
+        "glossary": "Glossary",
+        "glossary-2": "Glossary"
       },
       "headingKeywords": {}
     },
