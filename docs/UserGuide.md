@@ -191,40 +191,40 @@ Want to learn more? Check out the [Features](#features) section below.
 #### Format Legend
 Woah! Before we dive into the features, here's a quick legend to help you understand the format of the commands:
 
-<box type="default" icon=":mif-text-fields:" background-color="#efefef" light>
+<box type="default" icon=":fa-solid-a:" background-color="#efefef" light>
 
 **UPPER_CASE = !!Fill it in!!**<br>
 Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-**Example:** `n/NAME` :mif-arrow-right-alt: `n/John Doe` :mif-done:
+**Example:** `n/NAME` :fa-solid-arrow-right: `n/John Doe` :fa-solid-check:
 
 </box>
-<box type="default" icon=":mif-data-array:" background-color="#efefef" light>
+<box type="default" icon=":fa-solid-right-to-bracket:" background-color="#efefef" light>
 
 **[Square Brackets] = !!Optional!!** <br>
 Items in square brackets are optional.<br>
 **Example:** `n/NAME [rq/REQUEST]`<br>
-:mif-arrow-right-alt: `n/John Doe` :mif-done: <br>
-:mif-arrow-right-alt: `n/John Doe rq/New Pillow` :mif-done:
+:fa-solid-arrow-right: `n/John Doe` :fa-solid-check: <br>
+:fa-solid-arrow-right: `n/John Doe rq/New Pillow` :fa-solid-check:
 
 </box>
-<box type="default" icon=":mif-more-horiz:" background-color="#efefef" light>
+<box type="default" icon=":fa-solid-ellipsis:" background-color="#efefef" light>
 
 **Ellipsis … = !!Multiple Times!!** <br>
 Items with `…` after them can be used multiple times including zero times.<br>
 **Example:** `[rq/REQUEST]…`<br>
-:mif-arrow-right-alt: ` ` (not used at all) :mif-done: <br>
-:mif-arrow-right-alt: `rq/New Pillow` :mif-done: <br>
-:mif-arrow-right-alt: `rq/New Pillow rq/Orange Juice rq/Socks` :mif-done:
+:fa-solid-arrow-right: ` ` (not used at all) :fa-solid-check: <br>
+:fa-solid-arrow-right: `rq/New Pillow` :fa-solid-check: <br>
+:fa-solid-arrow-right: `rq/New Pillow rq/Orange Juice rq/Socks` :fa-solid-check:
 </box>
-<box type="warning" icon=":mif-swap-horiz:">
+<box type="warning" icon=":fa-solid-right-left:">
 
 **!!Any Order!!: Parameters can be in any order**<br>
 Example: `n/NAME `**`p/PHONE e/EMAIL`**<br>
-:mif-arrow-right-alt: `n/NAME `**`p/PHONE e/EMAIL`** (same order) :mif-done: <br>
-:mif-arrow-right-alt: **`e/EMAIL`**` n/NAME `**`p/PHONE`** (different order) :mif-done:
+:fa-solid-arrow-right: `n/NAME `**`p/PHONE e/EMAIL`** (same order) :fa-solid-check: <br>
+:fa-solid-arrow-right: **`e/EMAIL`**` n/NAME `**`p/PHONE`** (different order) :fa-solid-check:
 
 </box>
-<box type="wrong" icon=":mif-close:">
+<box type="wrong" icon=":fa-solid-xmark:">
 
 **!!Copy Carefully!!: Copying across line breaks in PDF version may cause issues**<br>
 If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
@@ -238,15 +238,15 @@ If you are using a PDF version of this document, be careful when copying and pas
 ### Viewing help: `help`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Shows a message with a link to this help page.
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `help`
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Output:<br>
 ![help message](images/helpMessage.png)
@@ -258,7 +258,7 @@ Sample Output:<br>
 ### Adding a guest: `add`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Adds a guest to the guest book.
 - A guest can have any number of requests (including 0)
@@ -266,11 +266,11 @@ Adds a guest to the guest book.
 - All guests automatically have status set to 'BOOKED' when they are added.
 
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `add n/NAME e/EMAIL [p/PHONE_NUMBER] r/ROOM_NUMBER [rq/REQUEST]…​`
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `add n/David Li e/lidavid@example.com p/98767890 r/21-22 rq/Extra toothpaste` <br>
 Adds a new guest named `David Li` who lives in room `21-22` with email `lidavid@example.com` and phone `98767890` and a request `Extra toothpaste`.
@@ -281,7 +281,7 @@ Adds a new guest named `David Li` who lives in room `21-22` with email `lidavid@
 ### Listing all guests : `list`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Shows a list of all guests in the guest list.
 - The list is sorted by the order in which guests were added.
@@ -290,7 +290,7 @@ Shows a list of all guests in the guest list.
 - The filters are provided for convenience to quickly find guests in the guest list, a stronger search can be done using the [find](#locating-guests-find) command.
 
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `list [rq/] [NAME_FILTER]…`
 - **`list`** displays every guest.
@@ -298,22 +298,22 @@ Format: `list [rq/] [NAME_FILTER]…`
 - **`list NAME_FILTER…`** displays only guests whose names match the filter.
 - **`list rq/ NAME_FILTER…`** displays only guests with requests whose names match the filter.
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `list` <br>
 Shows a list of all guests in the guest list.
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `list rq/` <br>
 Shows a list of all guests in the guest list with requests.
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `list John` <br>
 Shows a list of all guests with `John` in their name, including `John Doe` and `Johnathon Chua`.
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `list rq/ John Alex` <br>
 Shows a list of all guests with requests, with either `John` or `Alex` in their name, including `John Doe` and `Alexander Chua`.
@@ -324,7 +324,7 @@ Shows a list of all guests with requests, with either `John` or `Alex` in their 
 ### Locating guests: `find`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 The `find` command now searches across all guest fields by default—including name, email, phone number, room number, and requests. Use this command to search for a keyword that may appear in any field.
 * At least one keyword must be provided.
@@ -334,27 +334,27 @@ The `find` command now searches across all guest fields by default—including n
 * Guests matching at least one keyword will be returned (i.e. an OR search).
 
 </box>
-<box theme="warning" icon=":mif-warning:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-triangle-exclamation:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 **Warning:**
 - Avoid using overly generic or very short keywords, as these may produce unintended matches.
 - Because the command uses an OR search across all fields, multiple keywords can broaden your search results more than expected.
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `find KEYWORD [MORE_KEYWORDS]…`
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `find John` <br>
 Shows a list where any field (e.g. email, name) contains the full word "John" (e.g. "John Doe").
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `find BOOKED` <br>
 Shows all guests with the status `BOOKED`. You can also apply this for other statuses like `CHECKED IN` or `CHECKED OUT`, however you will need to use `find CHECKED_IN` and `find CHECKED_OUT` instead. 
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `find 03-04` <br>
 Shows all guests where any field (e.g. email, name) contains the full word "03-04" (e.g. "03-04"). This is useful for looking up the guests in a specific room. Note that the `#` symbol is not required.
@@ -367,7 +367,7 @@ Shows all guests where any field (e.g. email, name) contains the full word "03-0
 ### Editing a guest: `edit`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Edits an existing guest in the guest list.
 * Edits the guest at the specified `INDEX`. The index refers to the index number shown in the displayed guest list. The index **must be a positive integer and must be valid** (ie. within the number of guests displayed).
@@ -376,21 +376,21 @@ Edits an existing guest in the guest list.
 * If the edit results in a duplicate guest in the guest list (ie. two with the same email address), the command is not allowed.
 
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [r/ROOM_NUMBER]`
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `edit 1 e/charlotte@example.com`<br>
 Changes the email for the first guest to `charlotte@example.com`
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `edit 2 p/91234567 r/01-03` <br>
 Changes the phone number for the second guest to `91234567` and the room number to `01-03`.
 </box>
-<box theme="danger" icon=":mif-close:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="danger" icon=":fa-solid-xmark:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `edit 1 e/an_email_already_in_use@example.com r/03-04` <br>
 Tries to change a guest's email to one that is already registered to another guest, and update the room number. Nothing will occur, and an error message will be shown explaining that the email is not valid.
@@ -402,7 +402,7 @@ Tries to change a guest's email to one that is already registered to another gue
 ### Adding a request to a guest: `edit INDEX +rq/REQUEST`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Adds a request to an existing guest in the guest list.
 * Request names should be alphanumeric, may include spaces, and must not exceed 75 characters
@@ -410,16 +410,16 @@ Adds a request to an existing guest in the guest list.
 * The new request will be **added** to the back of the current request list for the guest.
 
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `edit INDEX [+rq/REQUEST]…​`
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `edit 2 +rq/Extra blanket`  <br>
 Edits guest No.2 in the list by adding a request `Extra blanket`.
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `edit 2 +rq/Extra blanket +rq/Extra pillow`  <br>
 Edits guest No.2 in the list by adding two requests `Extra blanket` and `Extra pillow`.
@@ -430,7 +430,7 @@ Edits guest No.2 in the list by adding two requests `Extra blanket` and `Extra p
 ### Removing a request of a guest: `edit INDEX -rq/REQUEST`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Removes an existing request of an existing guest in the guest list.
 * Conditions and features described in the previous section on [edit](#editing-a-guest-edit) command apply.
@@ -438,25 +438,25 @@ Removes an existing request of an existing guest in the guest list.
 * If the request is not found in the list of requests for the guest, nothing will happen and an error message will be shown.
 
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `edit … [-rq/REQUEST]…​`
 </box>
-<box theme="warning" icon=":mif-warning:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-triangle-exclamation:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 `-ri/REQUEST_INDEX` and `-rq/REQUEST` cannot be used together in the same edit command. <br>
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `edit 2 -rq/Extra blanket`  <br>
 Edits guest No.2 in the list by removing the request `Extra blanket`.
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `edit 2 -rq/Extra blanket -rq/Extra pillow`  <br>
 Edits guest No.2 in the list by removing two requests `Extra blanket` and `Extra pillow`.
 </box>
-<box theme="danger" icon=":mif-close:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="danger" icon=":fa-solid-xmark:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `edit 2 -ri/1 -rq/Extra Towel`  <br>
 Tries to remove the first request and a request `Extra Towel` in the list of requests for that guest.
@@ -470,7 +470,7 @@ The above command is not allowed as the requests deleted can be different depend
 ### Removing a request by index: `edit … -ri/REQUEST_INDEX `
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 **Removes** an existing request **using the index of the request** of an existing guest in the guest list.
 * Conditions and features described in the previous section on [edit](#editing-a-guest-edit) command apply.
@@ -478,20 +478,20 @@ The above command is not allowed as the requests deleted can be different depend
 * Rules on specified index are the same as the rules for the [edit](#editing-a-guest-edit) command.
 
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `edit … [-ri/REQUEST_INDEX]​`
 </box>
-<box theme="warning" icon=":mif-warning:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-triangle-exclamation:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 `-ri/REQUEST_INDEX` and `-rq/REQUEST` cannot be used together in the same edit command. <br>
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `edit 2 -ri/1`  <br>
 Edits guest No.2 in the list by removing the first request in the list of requests for that guest.
 </box>
-<box theme="danger" icon=":mif-close:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="danger" icon=":fa-solid-xmark:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `edit 2 -ri/1 -ri/2`  <br>
 Tries to remove the first and second requests in the list of requests for that guest. The above command is not allowed as the requests deleted can be different depending on how the command is interpreted. **To prevent confusion, nothing will occur, and an error message will be shown.**
@@ -502,18 +502,18 @@ Tries to remove the first and second requests in the list of requests for that g
 ### Checking In a guest: `check-in` 
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Changes the status of the guest at the specified index to `CHECKED IN`.
 * If the guest is already checked-in, the command will not have any effect and an error will be shown.
 * Rules on specified index are the same as the rules for the [edit](#editing-a-guest-edit) command.
 
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `check-in INDEX`
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `check-in 1`  <br>
 Changes the status of the guest at index 1 to `CHECKED IN`.
@@ -524,7 +524,7 @@ Changes the status of the guest at index 1 to `CHECKED IN`.
 ### Checking Out a guest: `check-out`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Changes the status of the guest at the specified index to `CHECKED OUT`.
 * !!The guest must have a status of checked-in before they can be checked-out!!. Otherwise, the command will not have any effect and an error will be shown.
@@ -532,11 +532,11 @@ Changes the status of the guest at the specified index to `CHECKED OUT`.
 * Rules on specified index are the same as the rules for the [edit](#editing-a-guest-edit) command.
 
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `check-out INDEX`
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `check-out 1`  <br>
 Changes the status of the guest at index 1 to `CHECKED OUT`.
@@ -547,18 +547,18 @@ Changes the status of the guest at index 1 to `CHECKED OUT`.
 ### Deleting a guest : `delete`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Deletes the specified guest from the guest list.
 * The index refers to the index number shown in the displayed guest list.
 * Rules on specified index are the same as the rules for the [edit](#editing-a-guest-edit) command.
 
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `delete INDEX`
 </box>
-<box theme="success" icon=":mif-done:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 Sample Input: `delete 2` <br>
 Deletes the second guest in the guest list.
@@ -570,14 +570,14 @@ Deletes the second guest in the guest list.
 ### Clearing all entries : `clear`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Deletes all guests in the guest list.
 * This command is provided for convenience to clear the mock data in the app.
 * It is not recommended to use this command as it will delete all guests in the guest list.
 
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `clear`
 </box>
@@ -588,13 +588,13 @@ Format: `clear`
 ### Exiting the program : `exit`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Exits the program. 
 - This is provided for convenience to quick typists, closing the app without using the mouse. 
 - It is not necessary to use this command to exit the app.
 </box>
-<box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `exit`
 </box>
@@ -604,17 +604,17 @@ Format: `exit`
 ### Notes on the data file
 ---
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
-<box theme="success" icon=":mif-done:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="success" icon=":fa-solid-check:" style="margin-top:-1em; margin-bottom:0px" seamless>
 Any changes to the data are immediately saved to the data file. **There is no need to save manually.**
 </box>
-<box theme="primary" icon=":mif-question-mark:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 The data file is stored in the home folder of GuestNote, where you placed the GuestNote jar file.
 - The data file is named `guestnote.json` and is created automatically when you run the application for the first time.
 - The data file is used to store all the guest information in JSON format, which is a standard format for storing data in a structured way.
 
 </box>
-<box theme="warning" icon=":mif-warning:" style="margin-top:-1em; margin-bottom:0px" seamless>
+<box theme="warning" icon=":fa-solid-triangle-exclamation:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 **Caution:** Advanced users are welcome to update data directly by editing that data file, however, please note:
 - If your changes to the data file makes its format invalid, GuestNote will discard all data and start with an empty data file at the next run.  Hence, **it is recommended to take a backup of the file before editing it**.<br>
