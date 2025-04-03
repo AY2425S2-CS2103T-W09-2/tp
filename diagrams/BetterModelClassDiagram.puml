@@ -5,17 +5,18 @@ skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
 GuestNote *-right-> "1" UniqueGuestList
-GuestNote *-right-> "1" UniqueTagList
-UniqueTagList -[hidden]down- UniqueGuestList
-UniqueTagList -[hidden]down- UniqueGuestList
+GuestNote *-right-> "1" UniqueRequestList
+UniqueRequestList -[hidden]down- UniqueGuestList
+UniqueRequestList -[hidden]down- UniqueGuestList
 
-UniqueTagList -right-> "*" Tag
+UniqueRequestList -right-> "*" Request
 UniqueGuestList -right-> Guest
 
-Guest -up-> "*" Tag
+Guest -up-> "*" Request
 
 Guest *--> Name
 Guest *--> Phone
 Guest *--> Email
-Guest *--> Address
+Guest *--> RoomNumber
+Guest *--> Status
 @enduml

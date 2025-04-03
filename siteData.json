@@ -67,6 +67,8 @@
         "use-case-uc06-list-all-requests": "Use case: UC06 - List All Requests",
         "use-case-uc07-mark-request-as-completed": "Use case: UC07 - Mark Request as Completed",
         "use-case-uc08-delete-request": "Use case: UC08 - Delete Request",
+        "use-case-uc09-check-in-guest": "Use case: UC09 - Check In Guest",
+        "use-case-uc10-check-out-guest": "Use case: UC10 - Check Out Guest",
         "glossary": "Glossary",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
