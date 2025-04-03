@@ -72,8 +72,13 @@
         "glossary": "Glossary",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
+        "adding-a-guest": "Adding a guest",
         "deleting-a-guest": "Deleting a guest",
-        "saving-data": "Saving data"
+        "editing-a-guest": "Editing a guest",
+        "listing": "Listing",
+        "finding-a-guest": "Finding a guest",
+        "saving-data": "Saving data",
+        "appendix-effort": "Appendix: Effort"
       },
       "headingKeywords": {}
     },
