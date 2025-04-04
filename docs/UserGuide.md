@@ -264,6 +264,17 @@ Adds a guest to the guest book.
 - A guest can have any number of requests (including 0)
 - A guest can be added without a phone number
 - All guests automatically have status set to 'BOOKED' when they are added.
+- Names should only contain alphanumeric characters and spaces.
+- Phones should only contain numbers, and be between 4 and 17 digits long.
+- Emails should be of the format local-part@domain and adhere to the following constraints:
+1. The entire email must not exceed 254 characters.
+2. The local-part should only contain alphanumeric characters and these special characters: +, _, ., -. The local-part may not start or end with any special characters.
+3. The local-part is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods. The domain name must:
+    - End with a domain label that is at least 2 characters long.
+    - Have each domain label start and end with alphanumeric characters.
+    - Have each domain label consist of alphanumeric characters, separated only by hyphens, if any.
+- Room numbers should contain two two-digit numbers separated by a hyphen.
+- Requests should be alphanumeric, may include spaces, and must not exceed 75 characters.
 
 </box>
 <box theme="warning" icon=":mif-format-italic:" style="margin-top:-1em; margin-bottom:0px" seamless>

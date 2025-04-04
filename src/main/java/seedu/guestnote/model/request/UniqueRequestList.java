@@ -154,8 +154,11 @@ public class UniqueRequestList implements Iterable<Request> {
      * Adds all the requests in the list to the current list.
      */
     public void addAll(List<Request> requests) {
+        int i = 0;
         for (Request request : requests) {
             add(request);
+            System.out.println(i);
+            System.out.println(request);
         }
     }
 
