@@ -10,7 +10,8 @@ import static seedu.guestnote.commons.util.AppUtil.checkArgument;
 public class RoomNumber {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Room numbers should contain two two-digit numbers separated by a hyphen, and it should not be blank";
+            "Room numbers should contain two two-digit numbers separated by a hyphen (eg. XX-YY)"
+                    + "and it should not be blank";
 
     /*
      * The first character of the room number must not be a whitespace,
