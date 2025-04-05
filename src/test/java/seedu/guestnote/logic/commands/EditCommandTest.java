@@ -98,6 +98,7 @@ public class EditCommandTest {
                 Messages.format(editedGuest));
 
         Model expectedModel = new ModelManager(new GuestNote(model.getGuestNote()), new UserPrefs());
+        showGuestAtIndex(expectedModel, INDEX_FIRST_GUEST);
         expectedModel.setGuest(model.getFilteredGuestList().get(0), editedGuest);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);

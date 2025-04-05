@@ -7,7 +7,6 @@ import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.guestnote.logic.parser.CliSyntax.PREFIX_ROOMNUMBER;
-import static seedu.guestnote.model.Model.PREDICATE_SHOW_ALL_GUESTS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,7 +97,7 @@ public class EditCommand extends Command {
         }
 
         model.setGuest(guestToEdit, editedGuest);
-        model.updateFilteredGuestList(PREDICATE_SHOW_ALL_GUESTS);
+
         return new CommandResult(String.format(MESSAGE_EDIT_GUEST_SUCCESS, Messages.format(editedGuest)));
     }
 
