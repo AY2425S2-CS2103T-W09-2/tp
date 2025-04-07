@@ -71,6 +71,7 @@
         "use-case-uc06-delete-request-of-guest-by-request-index": "Use case: UC06 - Delete Request of Guest by Request Index",
         "use-case-uc07-check-in-guest": "Use case: UC07 - Check-In Guest",
         "use-case-uc08-check-out-guest": "Use case: UC08 - Check Out Guest",
+        "non-functional-requirements": "Non-Functional Requirements",
         "glossary": "Glossary",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
