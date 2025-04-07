@@ -719,7 +719,7 @@ The data file is stored in the home folder of GuestNote, where you placed the Gu
 | **Exit**      | `exit`                                                                                                                                                                                      |
 | **Find**      | `find KEYWORD [MORE_KEYWORDS]`<br> Example: `find James Jake`                                                                                                                               |
 | **Help**      | `help`                                                                                                                                                                                      |
-| **List**      | `list [rq\] [NAME_FILTER]…`<br> Example: `list` or `list rq\` or `list James`                                                                                                               |
+| **List**      | `list [rq\] [NAME_FILTER]…`<br> Example: `list` or `list rq\ ` or `list James`                                                                                                              |
 
 --------------------------------------------------------------------------------------------------------------------
 ## Glossary
