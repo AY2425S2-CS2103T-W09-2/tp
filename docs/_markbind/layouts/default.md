@@ -34,7 +34,7 @@
   * [Quick Start]({{ baseUrl }}/UserGuide.html#quick-start)
   * [Features]({{ baseUrl }}/UserGuide.html#features)
     * [(Features) Table of Contents]({{ baseUrl }}/UserGuide.html#table-of-contents-2) 
-    * [(Features) Format Legend]({{ baseUrl }}/UserGuide.html#format-legend)
+    * [(Features) Format Legend]({{ baseUrl }}/UserGuide.html#format-legend) 
     * [(Features) Commands]({{ baseUrl }}/UserGuide.html#commands)
   * [FAQ]({{ baseUrl }}/UserGuide.html#faq)
   * [Command Summary]({{ baseUrl }}/UserGuide.html#command-summary)
