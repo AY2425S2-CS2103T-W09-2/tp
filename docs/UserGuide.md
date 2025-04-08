@@ -24,7 +24,7 @@ Designed with the fast-paced world of hotel operations in mind, **GuestNote** he
 - Reduce costly mistakes through built-in data validation
 - Keep track of all guest requests in one place, so nothing gets missed or forgotten
 
-With **GuestNote**, you can stay on top of guest needs, streamline daily concierge tasks, and ensure that no request falls through the cracks. Tailored to your team’s workflow, **GuestNote** simplifies routine processes so you can focus on delivering a smooth and memorable experience for every guest. Spend less time figuring things out and more time focusing on your guests. Provide your guests with a tailored experience, a home away from home.
+With **GuestNote**, you can stay on top of guests' needs, streamline daily concierge tasks, and ensure that no request falls through the cracks. Tailored to your team’s workflow, **GuestNote** simplifies routine processes so you can focus on delivering a smooth and memorable experience for every guest. Spend less time figuring things out and more time focusing on your guests. Provide your guests with a tailored experience, a home away from home.
 
 [[Back to top]](#guestnote-user-guide)
 
