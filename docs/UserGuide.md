@@ -5,26 +5,28 @@ pageNav: 3
 ---
 
 # GuestNote User Guide
-**Welcome to GuestNote!**  
+**Welcome to GuestNote!**
 > Time is money, and in the hotel industry, every second counts.
 
-Mistakes in guest handling - like assigning the wrong room or forgetting a special request - don’t just hurt your workflow. They hurt your guests’ experience and cost your hotel real money.  
+Mistakes in [guest](#glossary) handling - like assigning the wrong room or forgetting a special request - don’t just hurt your workflow. They hurt your guests’ experience and cost your hotel real money.
 
 **That’s where GuestNote comes in.**
 
-Adapted from [AddressBook Level 3 (AB3)](#glossary), **GuestNote** takes the core of a reliable contact management system and reimagines it for hotel operations. The result? A lightning-fast desktop app built for concierges and front desk staff, designed for the speed of a [Command-Line Interface (CLI)](#glossary), but with the clarity of a [Graphical User Interface (GUI)](#glossary), when managing hotel guests. Think of it as muscle memory meets modern [User Interface (UI)](#glossary) – if you can type, you can fly.
+Adapted from [AddressBook Level 3 (AB3)](#glossary), **GuestNote** takes the core of a reliable contact management system and reimagines it for hotel operations. The result? A lightning-fast desktop app built for concierges and front desk staff suitable for all [mainstream OS](#glossary), designed for the speed of a [Command-Line Interface (CLI)](#glossary), but with the clarity of a [Graphical User Interface (GUI)](#glossary), when managing hotel guests. Think of it as muscle memory meets modern [User Interface (UI)](#glossary) – if you can type, you can fly.
 
 ![firstview.png](images/ug/firstview.png)
 
 **Why Choose GuestNote?**  
-Designed with the fast-paced world of hotel operations in mind, **GuestNote** helps you: 
-- Quickly check in guests and assign rooms with just a few keystrokes 
-- View and manage essential guest information at a glance, all in one place 
-- Track and organise guest requests using simple, structured commands 
+Designed with the fast-paced world of hotel operations in mind, **GuestNote** helps you:
+- Quickly check in [guests](#glossary) and assign rooms with just a few keystrokes
+- View and manage essential guest information at a glance, all in one place
+- Track and organise guest requests using simple, structured [commands](#glossary)
 - Reduce costly mistakes through built-in data validation
 - Keep track of all guest requests in one place, so nothing gets missed or forgotten
 
 With **GuestNote**, you can stay on top of guest needs, streamline daily concierge tasks, and ensure that no request falls through the cracks. Tailored to your team’s workflow, **GuestNote** simplifies routine processes so you can focus on delivering a smooth and memorable experience for every guest. Spend less time figuring things out and more time focusing on your guests. Provide your guests with a tailored experience, a home away from home.
+
+[[Back to top]](#guestnote-user-guide)
 
 --------------------------------------------------------------------------------------------------------------------
 ## Table of Contents
@@ -38,16 +40,20 @@ Refer to the sidebar if you are on the website, or to the table below if you are
 5. [Command Summary](#command-summary)
 6. [Glossary](#glossary)
 
+[[Back to top]](#guestnote-user-guide)
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## How to use our User Guide
-Whether you're just getting started or coming back for a refresher, this guide has you covered.  
+Whether you're just getting started or coming back for a refresher, this guide has you covered.
 
-[New to GuestNote?](#quick-start) You’ll find everything you need in [Quick Start](#quick-start) to hit the ground running. 
+[New to GuestNote?](#quick-start) You’ll find everything you need in [Quick Start](#quick-start) to hit the ground running.
 
 [Been here before?](#command-summary) Use our handy [Command Summary](#command-summary) as a quick way to brush up on features.
 
 Visit our online [User Guide](https://ay2425s2-cs2103t-w09-2.github.io/tp/UserGuide.html) for the best (and most updated) experience, or view our [Developer Guide](https://ay2425s2-cs2103t-w09-2.github.io/tp/DeveloperGuide.html) to understand our design principles.
+
+[[Back to top]](#guestnote-user-guide)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -72,9 +78,9 @@ Click [here](#features) to view the features of GuestNote.
 
 * Follow these instructions to download and install Java [here](https://se-education.org/guides/tutorials/javaInstallationWindows.html). { text="1. " }
 * To check your Java version on Windows, please follow these steps: { text="2. " }
-    * Open Command Prompt. { text="2.1 " }
-    * Type `java -version` and press Enter. { text="2.2 " }
-    * Check the version of Java installed on your computer. Your Command Prompt window should look like this:  { text="2.3 " }
+  * Open Command Prompt. { text="2.1 " }
+  * Type `java -version` and press Enter. { text="2.2 " }
+  * Check the version of Java installed on your computer. Your Command Prompt window should look like this:  { text="2.3 " }
 
 <img src="images/ug/checkjavaversion_windows.jpeg" alt="Java version Windows" style="width:100%;">
 </box>
@@ -84,9 +90,9 @@ Click [here](#features) to view the features of GuestNote.
 
 * Follow these instructions to download and install Java [here](https://se-education.org/guides/tutorials/javaInstallationMac.html). { text="1. " }
 * To check your Java version on Mac, please follow these steps: { text="2. " }
-    * Open Terminal. { text="2.1 " }
-    * Type `java --version` and press Enter. { text="2.2 " }
-    * Check the version of Java installed on your computer. Your Terminal window should look like this: { text="2.3 " }
+  * Open Terminal. { text="2.1 " }
+  * Type `java --version` and press Enter. { text="2.2 " }
+  * Check the version of Java installed on your computer. Your Terminal window should look like this: { text="2.3 " }
 
 <img src="images/ug/checkjavaversion_mac.png" alt="Java version Mac" style="width:100%;">
 </box>
@@ -94,16 +100,16 @@ Click [here](#features) to view the features of GuestNote.
 
 2. Download the latest `.jar` file from [here](https://github.com/AY2425S2-CS2103T-W09-2/tp/releases).
 
-3. Copy the file to the folder you want to use as the _home folder_ for your GuestNote. GuestNote will create all the files it needs in this folder.
+3. Copy the file to the folder you want to use as the [_home folder_](#glossary) for your GuestNote. GuestNote will create all the files it needs in this folder.
 
 #### Running GuestNote
 
-1. Open a command terminal, and use the `cd` command to navigate into the folder you put the jar file in. For example, if you put the jar file in a folder named `GuestNote` on the `Desktop`, you can run the following commands:
+1. Open a command terminal, and use the `cd` [command](#glossary) to navigate into the folder you put the jar file in. For example, if you put the jar file in a folder named `GuestNote` on the `Desktop`, you can run the following commands:
     ```bash
     cd Desktop      # Navigate from home directory to the Desktop
     cd GuestNote    # Navigate to the folder containing the jar file
     ```
-   
+
 2. Run `java -jar guestnote.jar` command to run the application.<br>
    A GUI should appear in a few seconds. Note how the app contains some sample data.<br>
    ![firstview.png](images/ug/firstview.png)
@@ -116,13 +122,13 @@ Click [here](#features) to view the features of GuestNote.
 1. **Command Box:** This is where you type the commands.
 2. **Output Box:** This is where the result of the command is shown.
 3. **Guest Book:** This is where the list of guests is shown.
-![labelledUI.png](images/ug/labelledUI.png)
+   ![labelledUI.png](images/ug/labelledUI.png)
 
 <box type="info" header="##### Try out your first command: `help`" light>
 
-1. Type the command `help` into the Command Box, as shown below, then press Enter. 
+1. Type the command `help` into the Command Box, as shown below, then press Enter.
 2. Now you can always come back to this page if you need help:
-![help_command_executed.png](images/ug/help_command_executed.png) 
+   ![help_command_executed.png](images/ug/help_command_executed.png)
 
 </box>
 
@@ -167,6 +173,7 @@ Want to learn more? Check out the [Features](#features) section below.
 <br>
 
 
+[[Back to top]](#guestnote-user-guide)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -190,13 +197,15 @@ Want to learn more? Check out the [Features](#features) section below.
 * [Notes on Data Management](#notes-on-the-data-file)
 
 
+
+
 #### Format Legend
 Woah! Before we dive into the features, here's a quick legend to help you understand the format of the commands:
 
 <box type="default" icon=":fa-solid-a:" background-color="#efefef" light>
 
 **UPPER_CASE = !!Fill it in!!**<br>
-Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
+Words in `UPPER_CASE` are the [parameters](#glossary) to be supplied by the user.<br>
 **Example:** `n\NAME` :fa-solid-arrow-right: `n\John Doe` :fa-solid-check:
 
 </box>
@@ -220,7 +229,7 @@ Items with `…` after them can be used multiple times including zero times.<br>
 </box>
 <box type="warning" icon=":fa-solid-right-left:">
 
-**!!Any Order!!: Parameters can be in any order**<br>
+**!!Any Order!!: [Parameters](#glossary) can be in any order**<br>
 Example: `n\NAME `**`p\PHONE e\EMAIL`**<br>
 :fa-solid-arrow-right: `n\NAME `**`p\PHONE e\EMAIL`** (same order) :fa-solid-check: <br>
 :fa-solid-arrow-right: **`e\EMAIL`**` n\NAME `**`p\PHONE`** (different order) :fa-solid-check:
@@ -232,6 +241,11 @@ Example: `n\NAME `**`p\PHONE e\EMAIL`**<br>
 If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 
 </box>
+
+
+[[Back to top]](#guestnote-user-guide)
+
+--------------------------------------------------------------------------------------------------------------------
 
 ### Commands
 
@@ -265,7 +279,7 @@ Sample Output:<br>
 Adds a guest to the guest book.
 
 ### Guest Status
-- All guests automatically have status set to 'BOOKED' when they are added.
+- All guests automatically have [status](#glossary) set to 'BOOKED' when they are added.
 
 ### Name
 - Names should only contain alphanumeric characters and spaces.
@@ -276,8 +290,8 @@ Adds a guest to the guest book.
 
 ### Email
 - Emails should be of the format local-part@domain and adhere to the following constraints:
-  - The entire email must **not exceed 254** characters. 
-  - The local-part should only contain alphanumeric characters and these special characters: +, _, ., -. The local-part may not start or end with any special characters. 
+  - The entire email must **not exceed 254** characters.
+  - The local-part should only contain alphanumeric characters and these special characters: +, _, ., -. The local-part may not start or end with any special characters.
   - The local-part is followed by a '@' and then a domain name. The domain name is made up of domain labels separated by periods. The domain name must:
     - End with a domain label that is **at least 2** characters long.
     - Have each domain label **start and end** with **alphanumeric** characters.
@@ -291,7 +305,7 @@ Adds a guest to the guest book.
 ### Requests
 - Requests should be alphanumeric, may include spaces, and must not exceed 75 characters.
   - A guest can have any number of requests (including 0).
-  - Requests must be unique. 
+  - Requests must be unique.
   - Requests spelled the same are treated as the same, regardless of capitalisation
 
 </box>
@@ -328,8 +342,8 @@ Format: `list [rq\] [NAME_FILTER]…`
 - **`list rq\`** displays only guests with requests (i.e. guests whose request field is not null).
 - **`list NAME_FILTER…`** displays only guests whose names match the filter.
 - **`list rq\ NAME_FILTER…`** displays only guests with requests whose names match the filter.
-</box>
-<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+  </box>
+  <box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 !!Sample Input: `list`!!<br>
 Shows a list of all guests in the guest list.
@@ -357,10 +371,10 @@ Shows a list of all guests with requests, with either `John` or `Alex` in their 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
 <box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
-The `find` command now searches across all guest fields by default—including name, email, phone number, room number, and requests. Use this command to search for a keyword that may appear in any field.
-* At least one keyword must be provided. 
+The `find` command now searches across all guest fields by default—including name, email, phone number, room number, and [requests](#glossary). Use this command to search for a keyword that may appear in any field.
+* At least one keyword must be provided.
 * Like the [list](#listing-all-guests-list) command's name filter, the search is case-insensitive and partial matches are allowed.
-* The search is performed across all guest fields (name, phone number, room number, and requests).
+* The search is performed across all guest fields (name, phone number, room number, and [requests](#glossary)).
 * Guests matching at least one keyword will be returned (i.e. an OR search).
 
 </box>
@@ -369,8 +383,8 @@ The `find` command now searches across all guest fields by default—including n
 **Warning:**
 - Avoid using overly generic or very short keywords, as these may produce unintended matches.
 - Because the command uses an OR search across all fields, multiple keywords can broaden your search results more than expected.
-</box>
-<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
+  </box>
+  <box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `find KEYWORD [MORE_KEYWORDS]…`
 </box>
@@ -382,7 +396,7 @@ Shows a list where any field (e.g. email, name) contains the full word "John" (e
 <box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 !!Sample Input: `find BOOKED`!!<br>
-Shows all guests with the status `BOOKED`. You can also apply this for other statuses like `CHECKED IN` or `CHECKED OUT`, however you will need to use `find CHECKED_IN` and `find CHECKED_OUT` instead. 
+Shows all guests with the status `BOOKED`. You can also apply this for other statuses like `CHECKED IN` or `CHECKED OUT`, however you will need to use `find CHECKED_IN` and `find CHECKED_OUT` instead.
 </box>
 <box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
@@ -400,7 +414,7 @@ Shows all guests where any field (e.g. email, name) contains the full word "03-0
 <box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Edits an existing guest in the guest list.
-* Edits the guest at the specified `INDEX`. The index refers to the index number shown in the displayed guest list. The index **must be a positive integer and must be valid** (ie. within the number of guests displayed).
+* Edits the guest at the specified `INDEX`. The [index](#glossary) refers to the index number shown in the displayed guest list. The index **must be a positive integer and must be valid** (ie. within the number of guests displayed).
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * If the edit results in a duplicate guest in the guest list (ie. two with the same email address), the command is not allowed.
@@ -408,7 +422,7 @@ Edits an existing guest in the guest list.
 </box>
 <box theme="secondary" icon=":fa-solid-info:" style="margin-top:-1em; margin-bottom:0px; color:#999999" seamless>
 
-Other flags to edit a guest by [Adding a Request](#adding-a-request-to-a-guest-edit-index-rq-request) and [Removing a Request](#removing-a-request-of-a-guest-edit-index-rq-request) can be used together in this command, but they have been omitted here for clarity. They are covered in later sections. 
+Other flags to edit a guest by [Adding a Request](#adding-a-request-to-a-guest-edit-index-rq-request) and [Removing a Request](#removing-a-request-of-a-guest-edit-index-rq-request) can be used together in this command, but they have been omitted here for clarity. They are covered in later sections.
 </box>
 <box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
@@ -447,10 +461,10 @@ _Conditions and features described in the previous section on [edit](#editing-a-
 </box>
 <box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
-**Adds** a request to an existing guest in the guest list.
+**Adds** a [request](#glossary) to an existing guest in the guest list.
 * Request names should be alphanumeric, may include spaces, and must not exceed 75 characters
-* **Requests must be unique to the guest.** 
-  * Requests spelled the same will be considered the same, regardless of capitalisation. 
+* **Requests must be unique to the guest.**
+  * Requests spelled the same will be considered the same, regardless of capitalisation.
   * For example, `Extra Pillow` and `extra pillow` are considered the same request.
   * If the request is already in the list of requests for the guest, nothing will happen and an error message will be shown.
 * The new request will be **added** to the back of the current request list for the guest.
@@ -498,8 +512,8 @@ Format: `edit INDEX [-rq\REQUEST]…​`
 * `-ri\REQUEST_INDEX` and `-rq\REQUEST` cannot be used together in the same edit command.
 * Using together with `+rq\REQUEST` allows you to replace requests.
 * To prevent confusion, index removed will always be **based on the current request list**.
-</box>
-<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+  </box>
+  <box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 !!Sample Input: `edit 2 -rq\Extra blanket`!!<br>
 Edits guest No.2 in the list by removing the request `Extra blanket` (or any variant capitalisation of it, including `EXTRA BLANKET`, `Extra Blanket`, and `extra blanket`).
@@ -523,7 +537,7 @@ Edits guest No.2 in the list by removing the request spelled `extra pillow` and 
 </div>
 <br>
 
-### Removing a request by index: `edit INDEX [-ri\REQUEST_INDEX]`
+### Removing a request by index: `edit INDEX [-ri\REQUEST_INDEX]...`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
 <box theme="secondary" icon=":fa-solid-info:" style="margin-top:-1em; margin-bottom:0px; color:#999999" seamless>
@@ -546,8 +560,8 @@ Format: `edit INDEX [-ri\REQUEST_INDEX]​`
 * `-ri\REQUEST_INDEX` and `-rq\REQUEST` cannot be used together in the same edit command.
 * Using together with `+rq\REQUEST` allows you to replace requests.
 * To prevent confusion, index removed will always be **based on the current request list**.
-</box>
-<box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
+  </box>
+  <box theme="success" icon=":fa-solid-check:"  style="margin-top:-1em; margin-bottom:0em" seamless>
 
 !!Sample Input: `edit 2 -ri\1`!!<br>
 Edits guest No.2 in the list by removing the first request in the list of requests for that guest.
@@ -560,7 +574,7 @@ Tries to remove the first and second requests in the list of requests for that g
 </div>
 <br>
 
-### Checking In a guest: `check-in` 
+### Checking In a guest: `check-in`
 --- 
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
 <box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
@@ -662,11 +676,11 @@ Format: `clear`
 <div style="background-color:#fafafa; padding: 1em; border-radius: 5px; margin-bottom: 1em;">
 <box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
-Exits the program. 
-- This is provided for convenience to quick typists, closing the app without using the mouse. 
+Exits the program.
+- This is provided for convenience to quick typists, closing the app without using the mouse.
 - It is not necessary to use this command to exit the app.
-</box>
-<box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
+  </box>
+  <box theme="warning" icon=":fa-solid-i-cursor:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 Format: `exit`
 </box>
@@ -681,18 +695,22 @@ Any changes to the data are immediately saved to the data file. **There is no ne
 </box>
 <box theme="primary" icon=":fa-solid-question:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
-The data file is stored in the home folder of GuestNote, where you placed the GuestNote jar file.
+The data file is stored in the [home folder](#glossary) of GuestNote, where you placed the GuestNote jar file.
 - The data file is named `guestnote.json` and is created automatically when you run the application for the first time.
-- The data file is used to store all the guest information in JSON format, which is a standard format for storing data in a structured way.
+- The data file is used to store all the guest information in [JSON](#glossary) format, which is a standard format for storing data in a structured way.
 
 </box>
 <box theme="warning" icon=":fa-solid-triangle-exclamation:" style="margin-top:-1em; margin-bottom:0px" seamless>
 
 **Caution:** Advanced users are welcome to update data directly by editing that data file, however, please note:
-- If your changes to the data file makes its format invalid, GuestNote will discard all data and start with an empty data file at the next run.  Hence, **it is recommended to take a backup of the file before editing it**.<br>
+- If your changes to the data file makes its format invalid, GuestNote will discard all data and start with an empty data file at the next run.  Hence, **it is recommended to take a [backup](#glossary) of the file before editing it**.<br>
 - Furthermore, certain edits can cause the GuestNote to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, **edit the data file only if you are confident** that you can update it correctly.
-</box>
+  </box>
 </div>
+
+
+
+[[Back to top]](#guestnote-user-guide)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -702,10 +720,12 @@ The data file is stored in the home folder of GuestNote, where you placed the Gu
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous GuestNote home folder.
 
 **Q**: What should I do if the app crashes or behaves unexpectedly?<br>
-**A**: Ensure you are using the correct version of Java as specified in the Quick Start section. If the issue persists, check the log files for any error messages and report them to the [support team](/AboutUs.html)
+**A**: Ensure you are using the correct version of Java as specified in the Quick Start section. If the issue persists, check the log files for any error messages and report them to the [support team](https://ay2425s2-cs2103t-w09-2.github.io/tp/AboutUs.html)
 
 **Q**: Can I use GuestNote on multiple computers simultaneously?<br>
 **A**: GuestNote is designed to be used on a single computer. Using it on multiple computers simultaneously may lead to data inconsistencies.
+
+[[Back to top]](#guestnote-user-guide)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -715,6 +735,8 @@ The data file is stored in the home folder of GuestNote, where you placed the Gu
 2. **If you minimise the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimised, and no new Help Window will appear. The remedy is to manually restore the minimised Help Window.
 3. **Slow performance on large guest lists**, if the guest list contains a large number of entries, the application may experience slow performance. The remedy is to periodically clear out old or unnecessary entries.
 
+
+[[Back to top]](#guestnote-user-guide)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -740,23 +762,26 @@ ___
 
 | **Term**                     | **Definition / Example**                                                                                                                                                                                                             |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **AddressBook Level 3 (AB3)** | The original open-source Java application from which GuestNote was adapted. AB3 serves as a contact management app with a CLI interface and basic CRUD functionality, forming the foundation for GuestNote’s structure and features. |
-| **Backup**                  | A saved copy of your data file, used to restore the GuestNote in case of data loss.                                                                                                                                                  |
+| **AddressBook Level 3 (AB3)** | The original open-source Java application from which **GuestNote** was adapted. AB3 serves as a contact management app with a CLI interface and basic CRUD functionality, forming the foundation for **GuestNote**’s structure and features. |
+| **Backup**                  | A saved copy of your data file, used to restore the **GuestNote** in case of data loss.                                                                                                                                                  |
 | **cd**                      | Stands for "change directory" – a terminal command used to navigate between folders.<br>e.g., `cd path/to/folder`                                                                                                                    |
 | **Check-in**                | The process of registering a guest’s arrival at the hotel.                                                                                                                                                                           |
 | **Check-out**               | The process of finalising a guest’s stay and removing their active record.                                                                                                                                                           |
-| **CLI (Command Line Interface)** | A text-based interface for interacting with software by typing commands, instead of using a graphical interface. Common in developer tools and command-based apps like GuestNote.                                                    |
+| **CLI (Command Line Interface)** | A text-based interface for interacting with software by typing commands, instead of using a graphical interface. Common in developer tools and command-based apps like **GuestNote**.                                                    |
 | **Command**                 | An instruction typed into the CLI to perform an action in GuestNote.<br>e.g., `add`, `edit`, `check-in`                                                                                                                              |
-| **CSV (Comma Separated Values)** | A file format used for tabular data, where values are separated by commas and records by newlines. Can be opened by spreadsheet software like Excel.                                                                                 |
 | **Guest**                   | A guest staying at the hotel whose information is stored in the **GuestNote** system.                                                                                                                                                |
 | **GuestNote**               | The system responsible for managing hotel guest records, including personal details, requests, and check-in/check-out data.                                                                                                          |
-| **GUI (Graphical User Interface)** | A visual interface that allows users to interact with GuestNote using elements like buttons, lists, and panels.                                                                                                                      |
-| **Home Folder**             | The folder on your computer where GuestNote stores its data files.                                                                                                                                                                   |
+| **GUI (Graphical User Interface)** | A visual interface that allows users to interact with **GuestNote** using elements like buttons, lists, and panels.                                                                                                                      |
+| **Home Folder**             | The folder on your computer where **GuestNote** stores its data files.                                                                                                                                                                   |
 | **Index**                   | A number representing the position of a guest in the list.<br>e.g., in `delete 2`, "2" is the index of the guest to be deleted.                                                                                                      |
-| **JSON (JavaScript Object Notation)** | A lightweight data-interchange format that is easy to read and write. GuestNote uses JSON to store its internal data files.                                                                                                          |
-| **JSON File Location**      | The path to the JSON data file used by GuestNote.<br>e.g., `/home/user/data/guestnote.json`                                                                                                                                          |
-| **Mainstream OS**           | Refers to common operating systems supported by GuestNote: **Windows**, **Linux**, **Unix**, and **MacOS**.                                                                                                                          |
+| **JSON (JavaScript Object Notation)** | A lightweight data-interchange format that is easy to read and write. **GuestNote** uses JSON to store its internal data files.                                                                                                          |
+| **JSON File Location**      | The path to the JSON data file used by **GuestNote**.<br>e.g., `/home/user/data/guestnote.json`                                                                                                                                          |
+| **Mainstream OS**           | Refers to common operating systems supported by **GuestNote**: **Windows**, **Linux**, **Unix**, and **MacOS**.                                                                                                                          |
 | **Parameter**               | A specific input provided with a command, usually in the form of a prefix and value.<br>e.g., `n\James` or `r\01-01`                                                                                                                 |
 | **Request**                 | A service or action requested by a guest (e.g., room service, maintenance, additional amenities).                                                                                                                                    |
 | **Status**                  | Indicates the guest's booking stage:<br>**BOOKED**, **Checked-In** (`check-in INDEX`), or **Checked-Out** (`check-out INDEX`)                                                                                                        |
 | **UI (User Interface)**     | The overall layout and design of how users interact with GuestNote, including both CLI and GUI elements.                                                                                                                             |
+
+[[Back to top]](#guestnote-user-guide)
+
+--------------------------------------------------------------------------------------------------------------------
