@@ -78,9 +78,9 @@ Click [here](#features) to view the features of GuestNote.
 
 * Follow these instructions to download and install Java [here](https://se-education.org/guides/tutorials/javaInstallationWindows.html). { text="1. " }
 * To check your Java version on Windows, please follow these steps: { text="2. " }
-  * Open Command Prompt. { text="2.1 " }
-  * Type `java -version` and press Enter. { text="2.2 " }
-  * Check the version of Java installed on your computer. Your Command Prompt window should look like this:  { text="2.3 " }
+    * Open Command Prompt. { text="2.1 " }
+    * Type `java -version` and press Enter. { text="2.2 " }
+    * Check the version of Java installed on your computer. Your Command Prompt window should look like this:  { text="2.3 " }
 
 <img src="images/ug/checkjavaversion_windows.jpeg" alt="Java version Windows" style="width:100%;">
 </box>
