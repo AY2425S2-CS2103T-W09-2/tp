@@ -67,7 +67,7 @@
         "use-case-uc02-list-guests": "Use case: UC02 - List Guests",
         "use-case-uc03-update-guest-details": "Use case: UC03 - Update Guest Details",
         "use-case-uc04-delete-guest": "Use case: UC04 - Delete Guest",
-        "use-case-uc05-create-new-request-for-guest": "Use case: UC05 - Create New Request for Guest",
+        "use-case-uc05-add-new-request-to-existing-guest": "Use case: UC05 - Add New Request to Existing Guest",
         "use-case-uc06-delete-request-of-guest-by-request-index": "Use case: UC06 - Delete Request of Guest by Request Index",
         "use-case-uc07-check-in-guest": "Use case: UC07 - Check-In Guest",
         "use-case-uc08-check-out-guest": "Use case: UC08 - Check Out Guest",
