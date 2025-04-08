@@ -147,7 +147,7 @@
         "editing-a-guest-edit": "Editing a guest: edit",
         "adding-a-request-to-a-guest-edit-index-rq-request": "Adding a request to a guest: edit INDEX [+rq\\REQUEST]…",
         "removing-a-request-of-a-guest-edit-index-rq-request": "Removing a request of a guest: edit INDEX [-rq\\REQUEST]…",
-        "removing-a-request-by-index-edit-index-ri-request-index": "Removing a request by index: edit INDEX [-ri\\REQUEST_INDEX]",
+        "removing-a-request-by-index-edit-index-ri-request-index": "Removing a request by index: edit INDEX [-ri\\REQUEST_INDEX]...",
         "checking-in-a-guest-check-in": "Checking In a guest: check-in",
         "checking-out-a-guest-check-out": "Checking Out a guest: check-out",
         "deleting-a-guest-delete": "Deleting a guest : delete",
